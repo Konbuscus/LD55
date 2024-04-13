@@ -25,6 +25,6 @@ public class UIDebuger : MonoBehaviour
             GameObject line = Instantiate(instance.Line, instance.transform);
             instance.elements.Add(key, line.GetComponent<TextMeshProUGUI>());
         }
-        instance.elements[key].text = value;
+        instance.elements[key].text = key + " : " + value;
     }
 }
