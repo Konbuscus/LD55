@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Sentis.Layers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -49,6 +50,7 @@ public class PlayerMovements : MonoBehaviour
         Move();
         Look();
         Animate();
+        CheckInteractable();
         DebugToUI();
     }
 
@@ -125,6 +127,18 @@ public class PlayerMovements : MonoBehaviour
         else
         {
             footStepSource.Stop();
+        }
+    }
+
+    private void CheckInteractable()
+    {
+        if(Physics.Raycast(cameraHolder.position, cameraHolder.forward, out RaycastHit hit, 50f))
+        {
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
+            if (interactable != null)
+            {
+                interactable.SetOutlined();
+            }
         }
     }
 
