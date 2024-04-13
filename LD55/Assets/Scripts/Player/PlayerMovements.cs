@@ -13,10 +13,10 @@ public class PlayerMovements : MonoBehaviour
 
     public Transform cameraHolder;
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 2f;
     public float sprintMultiplicator = 1.5f;
-    public float xLookSpeed = 5f;
-    public float yLookSpeed = 5f;
+    public float xLookSpeed = 25f;
+    public float yLookSpeed = 15f;
     public float distToStair = 0.25f;
 
     private float curRot = 0;
@@ -56,7 +56,8 @@ public class PlayerMovements : MonoBehaviour
 
     void Move()
     {
-        Vector3 moveChange = (transform.forward * moveDir.y + transform.right * moveDir.x) * moveSpeed * Time.deltaTime * 10f + transform.up * (isInStair ? 10.5f * Time.deltaTime : 0f);
+        //Vector3 moveChange = (transform.forward * moveDir.y + transform.right * moveDir.x) * moveSpeed * Time.deltaTime * 10f + transform.up * (isInStair ? 10.5f * Time.deltaTime : 0f);
+        Vector3 moveChange = (transform.forward * moveDir.y) * moveSpeed * Time.deltaTime * 10f + transform.up * (isInStair ? 10.5f * Time.deltaTime : 0f);
         Vector3 down = Vector3.zero;
         if (!Physics.Raycast(transform.position, -transform.up, distToStair) && isInStair)
         {
