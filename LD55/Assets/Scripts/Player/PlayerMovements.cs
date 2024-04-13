@@ -64,7 +64,6 @@ public class PlayerMovements : MonoBehaviour
 
     void Move()
     {
-        //Vector3 moveChange = (transform.forward * moveDir.y + transform.right * moveDir.x) * moveSpeed * Time.deltaTime * 10f + transform.up * (isInStair ? 10.5f * Time.deltaTime : 0f);
         Vector3 moveChange = (transform.forward * moveDir.y) * moveSpeed * Time.deltaTime * 10f + transform.up * (isInStair ? 10.5f * Time.deltaTime : 0f);
         Vector3 down = Vector3.zero;
         if (!Physics.Raycast(transform.position, -transform.up, distToStair) && isInStair)
@@ -73,7 +72,6 @@ public class PlayerMovements : MonoBehaviour
             //down += -transform.forward * Time.deltaTime * 20f;
         }
         rb.velocity += moveChange + down;
-        //rb.MovePosition(transform.position + moveChange);
     }
 
     void Look()

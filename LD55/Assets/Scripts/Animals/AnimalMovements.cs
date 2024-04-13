@@ -25,6 +25,7 @@ public class AnimalMovements : MonoBehaviour
     public bool isLandedType = true;
     public float moveSpeed = 2;
     public float moveSpeedFactor = 1f;
+    protected float moveSpeedAnimationSpeed = 0;
 
     public float jumpForce = 10000f;
 
@@ -83,13 +84,7 @@ public class AnimalMovements : MonoBehaviour
 
     protected virtual void StartMove()
     {
-        /*if (targetPoint.moveMode == MoveMode.Jump)
-        {
-            float height = (targetPoint.targetPosition.y - transform.position.y + 0.35f);
-            height = Mathf.Log(1 + Mathf.Pow(1 + height, 2)) * 0.85f;
-            rb.AddForce(Vector3.up * jumpForce * height);
-        }*/
-        Debug.Log("base start move");
+
     }
 
     void MoveToward()
@@ -97,13 +92,12 @@ public class AnimalMovements : MonoBehaviour
         float dist = Mathf.Sqrt(Mathf.Pow(targetPoint.targetPosition.x - transform.position.x, 2) + Mathf.Pow(targetPoint.targetPosition.z - transform.position.z, 2));
         //UIDebuger.DisplayValue("targetPoint", targetPoint.ToString());
         //UIDebuger.DisplayValue("dist", dist.ToString());
-        if (dist < 0.25f)
+        if (dist < targetPoint.stopDistance)
         {
             curentWaitTime = targetPoint.timeAfter;
             refTime = Time.time;
             targetPoint = null;
             rb.velocity = Vector3.zero;
-            Debug.Log("on");
             return;
         }
 
@@ -121,6 +115,8 @@ public class AnimalMovements : MonoBehaviour
 
         //UIDebuger.DisplayValue("moveChange", moveChange.ToString());
         rb.velocity += moveChange;
+
+        moveSpeedAnimationSpeed = rb.velocity.magnitude / 2f;
     }
 
     void Look()
@@ -140,6 +136,6 @@ public class AnimalMovements : MonoBehaviour
     protected void Animate()
     {
         animator.SetBool("Landed", isLanded);
-        animator.SetFloat("Speed", rb.velocity.magnitude / 2f);
+        animator.SetFloat("Speed", moveSpeedAnimationSpeed);
     }
 }

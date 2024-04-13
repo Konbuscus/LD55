@@ -16,6 +16,9 @@ public class CatMovements : AnimalMovements
         base.Start();
         //targetMoves.Add(new MovePoint(new Vector3(3, 0, 6), MoveMode.Walk, 1f, 0.5f));
         //targetMoves.Add(new MovePoint(new Vector3(2, 0.5f, 6), MoveMode.Jump));
+
+        //Transform tmp = GameObject.Find("marker").transform;
+        //SetMoveAroundTarget(tmp);
     }
 
     // Update is called once per frame
@@ -47,7 +50,6 @@ public class CatMovements : AnimalMovements
             height = Mathf.Log(1 + Mathf.Pow(1 + height, 2)) * 0.85f;
             rb.AddForce(Vector3.up * jumpForce * height);
             animator.SetTrigger("Jump");
-            Debug.Log("jump !!!");
         }
         base.StartMove();
     }
@@ -62,7 +64,8 @@ public class CatMovements : AnimalMovements
         Vector3 tmpPos = target.position + new Vector3(-Mathf.Cos(currentCirclePos), 0,-Mathf.Sin(currentCirclePos));
         tmpPos.y = transform.position.y;
         transform.LookAt(tmpPos);
-        transform.position = tmpPos;
+        rb.MovePosition(tmpPos);
+        moveSpeedAnimationSpeed = circleSpeed * 100f;
     }
 
     public void SetMoveAroundTarget(Transform target)

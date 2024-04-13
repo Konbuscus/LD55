@@ -16,6 +16,7 @@ public class MovePoint
     public MoveMode moveMode;
     public float timeBefore = 0;
     public float timeAfter = 0;
+    public float stopDistance = 0.25f;
 
     public MovePoint(Vector3 targetPosition, MoveMode moveMode)
     {
@@ -36,5 +37,14 @@ public class MovePoint
         this.moveMode = moveMode;
         this.timeBefore = timeBefore;
         this.timeAfter = timeAfter;
+    }
+
+    public MovePoint(Vector3 targetPosition, MoveMode moveMode, float timeBefore, float timeAfter, float stopDistance)
+    {
+        this.targetPosition = targetPosition;
+        this.moveMode = moveMode;
+        this.timeBefore = timeBefore;
+        this.timeAfter = timeAfter;
+        this.stopDistance = stopDistance;
     }
 }
