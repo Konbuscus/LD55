@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Security;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,8 @@ using UnityEngine.Rendering;
 public class AnimalMovements : MonoBehaviour
 {
     protected Rigidbody rb;
+
+    protected Animator animator;
 
     protected MovePoint targetPoint;
     protected Vector3 lookDir;
@@ -25,10 +28,14 @@ public class AnimalMovements : MonoBehaviour
 
     public float jumpForce = 10000f;
 
+    public Transform floorDetector;
+    private bool isLanded;
+
     // Start is called before the first frame update
     protected void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         refTime = Time.time;
     }
 
@@ -37,6 +44,12 @@ public class AnimalMovements : MonoBehaviour
     {
         Look();
         Move();
+
+        RaycastHit[] hits = Physics.RaycastAll(floorDetector.position, Vector3.down, 0.25f);
+        hits = hits.Where(h => h.collider.gameObject != gameObject).ToArray();
+        isLanded = hits.Length > 0;
+
+        Animate();
     }
 
     void Move()
@@ -68,14 +81,15 @@ public class AnimalMovements : MonoBehaviour
         }
     }
 
-    void StartMove()
+    protected virtual void StartMove()
     {
-        if (targetPoint.moveMode == MoveMode.Jump)
+        /*if (targetPoint.moveMode == MoveMode.Jump)
         {
             float height = (targetPoint.targetPosition.y - transform.position.y + 0.35f);
             height = Mathf.Log(1 + Mathf.Pow(1 + height, 2)) * 0.85f;
             rb.AddForce(Vector3.up * jumpForce * height);
-        }
+        }*/
+        Debug.Log("base start move");
     }
 
     void MoveToward()
@@ -121,5 +135,11 @@ public class AnimalMovements : MonoBehaviour
 
             transform.LookAt(transform.position + flatLookDir, Vector3.up);
         }
+    }
+
+    protected void Animate()
+    {
+        animator.SetBool("Landed", isLanded);
+        animator.SetFloat("Speed", rb.velocity.magnitude / 2f);
     }
 }
