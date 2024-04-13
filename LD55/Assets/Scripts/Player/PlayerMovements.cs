@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovements : MonoBehaviour
 {
     private Rigidbody rb;
+    private Animator animator;
 
     private Vector2 moveDir;
     private Vector2 lookDir;
@@ -39,6 +40,7 @@ public class PlayerMovements : MonoBehaviour
     {
         isInStair = false;
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -46,12 +48,18 @@ public class PlayerMovements : MonoBehaviour
     {
         Move();
         Look();
+        Animate();
         DebugToUI();
     }
 
     void FixedUpdate()
     {
         
+    }
+
+    void Animate()
+    {
+        animator.SetFloat("Speed", moveDir.y);
     }
 
     void Move()
