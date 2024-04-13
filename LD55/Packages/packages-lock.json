@@ -143,21 +143,21 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.muse.sprite": {
-      "version": "1.0.0-pre.18",
+      "version": "1.0.0-pre.21",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.uielements": "1.0.0",
-        "com.unity.muse.common": "1.0.0-pre.18"
+        "com.unity.muse.common": "1.0.0-pre.21"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.muse.texture": {
-      "version": "1.0.0-pre.18",
+      "version": "1.0.0-pre.21",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.muse.common": "1.0.0-pre.18",
+        "com.unity.muse.common": "1.0.0-pre.21",
         "com.unity.shadergraph": "14.0.7"
       },
       "url": "https://packages.unity.com"
