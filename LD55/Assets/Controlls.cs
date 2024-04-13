@@ -64,9 +64,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Flash"",
+                    ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""6d2e262e-7f82-4d47-9046-5d7f34e554e7"",
+                    ""id"": ""01cb5cbe-8a9e-4f78-a45b-85c4cdab751f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -176,7 +176,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d3045b7f-70a7-4614-855a-4008b4f4af8c"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -208,23 +208,23 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c12c430b-9750-4ea4-b0d2-36de84272289"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""id"": ""38ae8546-bf59-4128-95b1-479778948d05"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Flash"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b379ea86-47c9-4188-a52e-f307a879f93b"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""id"": ""b5d81783-572f-441d-8f53-2f4ad7aef7d8"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Flash"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -239,7 +239,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         m_Keyboard_Look = m_Keyboard.FindAction("Look", throwIfNotFound: true);
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
         m_Keyboard_Sprint = m_Keyboard.FindAction("Sprint", throwIfNotFound: true);
-        m_Keyboard_Flash = m_Keyboard.FindAction("Flash", throwIfNotFound: true);
+        m_Keyboard_Jump = m_Keyboard.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -305,7 +305,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Look;
     private readonly InputAction m_Keyboard_Interact;
     private readonly InputAction m_Keyboard_Sprint;
-    private readonly InputAction m_Keyboard_Flash;
+    private readonly InputAction m_Keyboard_Jump;
     public struct KeyboardActions
     {
         private @Controlls m_Wrapper;
@@ -314,7 +314,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Keyboard_Look;
         public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
         public InputAction @Sprint => m_Wrapper.m_Keyboard_Sprint;
-        public InputAction @Flash => m_Wrapper.m_Keyboard_Flash;
+        public InputAction @Jump => m_Wrapper.m_Keyboard_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -336,9 +336,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
-            @Flash.started += instance.OnFlash;
-            @Flash.performed += instance.OnFlash;
-            @Flash.canceled += instance.OnFlash;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IKeyboardActions instance)
@@ -355,9 +355,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
-            @Flash.started -= instance.OnFlash;
-            @Flash.performed -= instance.OnFlash;
-            @Flash.canceled -= instance.OnFlash;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IKeyboardActions instance)
@@ -381,6 +381,6 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
-        void OnFlash(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
