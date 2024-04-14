@@ -1,0 +1,1889 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a6b9796d1c0440eba061ace5e9dff6, type: 3}
+  m_Name: Generate 2D texture to put on a terrain for painting path in a forest
+  m_EditorClassIdentifier: 
+  assetsData:
+  - rid: 4499585637605966345
+  - rid: 4499585637605966351
+  - rid: 4499585637605966357
+  - rid: 4499585637605966363
+  - rid: 4499585637605966369
+  - rid: 4499585637605966375
+  - rid: 4499585637605966381
+  - rid: 4499585637605966387
+  - rid: 4499585637605966393
+  - rid: 4499585637605966399
+  - rid: 4499585637605966405
+  - rid: 4499585637605966411
+  - rid: 4499585637605966417
+  - rid: 4499585637605966423
+  - rid: 4499585637605966429
+  - rid: 4499585637605966435
+  - rid: 4499585637605966441
+  - rid: 4499585637605966447
+  - rid: 4499585637605966453
+  - rid: 4499585637605966459
+  - rid: 4499585637605966465
+  - rid: 4499585637605966471
+  - rid: 4499585637605966477
+  - rid: 4499585637605966483
+  currentMode: TextToImage
+  m_Data:
+  - rid: 4499585637605966336
+  - rid: 4499585637605966337
+  - rid: 4499585637605966338
+  - rid: 4499585637605966339
+  preRefinedArtifact:
+    rid: -2
+  refinedArtifact:
+    rid: -2
+  selectedArtifact:
+    rid: 4499585637605966453
+  m_Operators:
+  - rid: 4499585637605966340
+  - rid: 4499585637605966341
+  - rid: 4499585637605966342
+  - rid: 4499585637605966343
+  - rid: 4499585637605966344
+  m_PreRefineOperators: []
+  m_ExportedArtifacts:
+  - m_UnityGuid: 381f0b18d5f3b824bac497fcd4e599ba
+    m_MuseGuid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+  - m_UnityGuid: e6c81c868f7e624468cf74855b1f1344
+    m_MuseGuid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+  - m_UnityGuid: 982be316c3f448a499e291967343db7c
+    m_MuseGuid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+  - m_UnityGuid: 3ec472d98482adf498cf9179a65d0d65
+    m_MuseGuid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+  - m_UnityGuid: 5d5396c6f05898446ad8836134a559b1
+    m_MuseGuid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+  - m_UnityGuid: 459194c005089b74aa3ccd1845cd0182
+    m_MuseGuid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+  - m_UnityGuid: 35e28b88df277874390c5a01a01755f2
+    m_MuseGuid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+  - m_UnityGuid: 1cf4346227197e4419e0313fc96e320e
+    m_MuseGuid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4499585637605966336
+      type: {class: FeedbackManager, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_Liked:
+          m_Values: []
+        m_Disliked:
+          m_Values: []
+    - rid: 4499585637605966337
+      type: {class: MainUI/UISize, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_NodeListWidth: 300
+        m_NodeListRefineWidth: 300
+        m_AssetListRefineWidth: 200
+    - rid: 4499585637605966338
+      type: {class: GenerateButtonData, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data: 
+    - rid: 4499585637605966339
+      type: {class: BookmarkManager, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_BookmarkedArtifacts:
+          m_Values:
+          - 787582ae-71e6-4b4a-9ce6-9805d843856e
+        m_IsFilterEnabled: 0
+    - rid: 4499585637605966340
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966341
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966342
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966343
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966344
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966345
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 3f375f43-705a-418c-b9ad-be21786281f5
+        Seed: 3918897590
+        m_Operators:
+        - rid: 4499585637605966346
+        - rid: 4499585637605966347
+        - rid: 4499585637605966348
+        - rid: 4499585637605966349
+        - rid: 4499585637605966350
+        history:
+        - rid: 4499585637605966345
+        IsPbrMode: 0
+    - rid: 4499585637605966346
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966347
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate 2D texture to put on a terrain for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966348
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966349
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966350
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966351
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: a1fd4b85-4912-4c81-91de-5e22aef03881
+        Seed: 2046538122
+        m_Operators:
+        - rid: 4499585637605966352
+        - rid: 4499585637605966353
+        - rid: 4499585637605966354
+        - rid: 4499585637605966355
+        - rid: 4499585637605966356
+        history:
+        - rid: 4499585637605966351
+        IsPbrMode: 0
+    - rid: 4499585637605966352
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966353
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate 2D texture to put on a terrain for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966354
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966355
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966356
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966357
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 55dd6038-e5bf-40f0-b87f-d29716c551de
+        Seed: 243654154
+        m_Operators:
+        - rid: 4499585637605966358
+        - rid: 4499585637605966359
+        - rid: 4499585637605966360
+        - rid: 4499585637605966361
+        - rid: 4499585637605966362
+        history:
+        - rid: 4499585637605966357
+        IsPbrMode: 0
+    - rid: 4499585637605966358
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966359
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate 2D texture to put on a terrain for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966360
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966361
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966362
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966363
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 4b4888fd-9f6a-4ca5-ad87-6bcc67969d0b
+        Seed: 2223259955
+        m_Operators:
+        - rid: 4499585637605966364
+        - rid: 4499585637605966365
+        - rid: 4499585637605966366
+        - rid: 4499585637605966367
+        - rid: 4499585637605966368
+        history:
+        - rid: 4499585637605966363
+        IsPbrMode: 0
+    - rid: 4499585637605966364
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966365
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate 2D texture to put on a terrain for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966366
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966367
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966368
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966369
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: a0bb446e-427e-4627-85e7-3fd225b34cc2
+        Seed: 580505018
+        m_Operators:
+        - rid: 4499585637605966370
+        - rid: 4499585637605966371
+        - rid: 4499585637605966372
+        - rid: 4499585637605966373
+        - rid: 4499585637605966374
+        history:
+        - rid: 4499585637605966369
+        IsPbrMode: 0
+    - rid: 4499585637605966370
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966371
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate 2D texture to put on a terrain for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966372
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966373
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966374
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966375
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 51898030-06bf-4340-9afa-e7ef480f9442
+        Seed: 3519305997
+        m_Operators:
+        - rid: 4499585637605966376
+        - rid: 4499585637605966377
+        - rid: 4499585637605966378
+        - rid: 4499585637605966379
+        - rid: 4499585637605966380
+        history:
+        - rid: 4499585637605966375
+        IsPbrMode: 0
+    - rid: 4499585637605966376
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966377
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate 2D texture to put on a terrain for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966378
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966379
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966380
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966381
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 816a2328-50cb-42e9-a958-d3f52997bacc
+        Seed: 3842368741
+        m_Operators:
+        - rid: 4499585637605966382
+        - rid: 4499585637605966383
+        - rid: 4499585637605966384
+        - rid: 4499585637605966385
+        - rid: 4499585637605966386
+        history:
+        - rid: 4499585637605966381
+        IsPbrMode: 0
+    - rid: 4499585637605966382
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966383
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate 2D texture to put on a terrain for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966384
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966385
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966386
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966387
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: c08e04f2-854b-4d93-b0bb-98fd36de7752
+        Seed: 3120668314
+        m_Operators:
+        - rid: 4499585637605966388
+        - rid: 4499585637605966389
+        - rid: 4499585637605966390
+        - rid: 4499585637605966391
+        - rid: 4499585637605966392
+        history:
+        - rid: 4499585637605966387
+        IsPbrMode: 0
+    - rid: 4499585637605966388
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966389
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate 2D texture to put on a terrain for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966390
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966391
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966392
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966393
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: a3a13762-3d3e-4563-a4b8-2d26a92803a4
+        Seed: 616247329
+        m_Operators:
+        - rid: 4499585637605966394
+        - rid: 4499585637605966395
+        - rid: 4499585637605966396
+        - rid: 4499585637605966397
+        - rid: 4499585637605966398
+        history:
+        - rid: 4499585637605966393
+        IsPbrMode: 0
+    - rid: 4499585637605966394
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966395
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966396
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966397
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966398
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966399
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 31f18271-7be5-4945-8305-86b390847c1c
+        Seed: 2379920596
+        m_Operators:
+        - rid: 4499585637605966400
+        - rid: 4499585637605966401
+        - rid: 4499585637605966402
+        - rid: 4499585637605966403
+        - rid: 4499585637605966404
+        history:
+        - rid: 4499585637605966399
+        IsPbrMode: 0
+    - rid: 4499585637605966400
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966401
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966402
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966403
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966404
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966405
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 99a97d8c-9ff6-4bba-bff7-fafe5b27e4d0
+        Seed: 1191834949
+        m_Operators:
+        - rid: 4499585637605966406
+        - rid: 4499585637605966407
+        - rid: 4499585637605966408
+        - rid: 4499585637605966409
+        - rid: 4499585637605966410
+        history:
+        - rid: 4499585637605966405
+        IsPbrMode: 0
+    - rid: 4499585637605966406
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966407
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966408
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966409
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966410
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966411
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 671fa83d-d300-4f16-b791-2405b23337d5
+        Seed: 1644225639
+        m_Operators:
+        - rid: 4499585637605966412
+        - rid: 4499585637605966413
+        - rid: 4499585637605966414
+        - rid: 4499585637605966415
+        - rid: 4499585637605966416
+        history:
+        - rid: 4499585637605966411
+        IsPbrMode: 0
+    - rid: 4499585637605966412
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966413
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966414
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966415
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966416
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966417
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 02f39a1c-4d16-4cd3-9a83-74b140edf0ff
+        Seed: 164334075
+        m_Operators:
+        - rid: 4499585637605966418
+        - rid: 4499585637605966419
+        - rid: 4499585637605966420
+        - rid: 4499585637605966421
+        - rid: 4499585637605966422
+        history:
+        - rid: 4499585637605966417
+        IsPbrMode: 0
+    - rid: 4499585637605966418
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966419
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966420
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966421
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966422
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966423
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: ce012883-d223-46a7-885d-64297d33feef
+        Seed: 1905274744
+        m_Operators:
+        - rid: 4499585637605966424
+        - rid: 4499585637605966425
+        - rid: 4499585637605966426
+        - rid: 4499585637605966427
+        - rid: 4499585637605966428
+        history:
+        - rid: 4499585637605966423
+        IsPbrMode: 0
+    - rid: 4499585637605966424
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966425
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966426
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966427
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966428
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966429
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 60c4b396-e69e-490e-b07d-211daae6181b
+        Seed: 1166283419
+        m_Operators:
+        - rid: 4499585637605966430
+        - rid: 4499585637605966431
+        - rid: 4499585637605966432
+        - rid: 4499585637605966433
+        - rid: 4499585637605966434
+        history:
+        - rid: 4499585637605966429
+        IsPbrMode: 0
+    - rid: 4499585637605966430
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966431
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966432
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966433
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966434
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966435
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 499832dc-4cb8-4bb8-9688-5463a70b775f
+        Seed: 3489371549
+        m_Operators:
+        - rid: 4499585637605966436
+        - rid: 4499585637605966437
+        - rid: 4499585637605966438
+        - rid: 4499585637605966439
+        - rid: 4499585637605966440
+        history:
+        - rid: 4499585637605966435
+        IsPbrMode: 0
+    - rid: 4499585637605966436
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966437
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966438
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966439
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966440
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966441
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: b73e3d9c-66f4-4f80-9e57-06eaaa9d9589
+        Seed: 3756316236
+        m_Operators:
+        - rid: 4499585637605966442
+        - rid: 4499585637605966443
+        - rid: 4499585637605966444
+        - rid: 4499585637605966445
+        - rid: 4499585637605966446
+        history:
+        - rid: 4499585637605966441
+        IsPbrMode: 0
+    - rid: 4499585637605966442
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966443
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966444
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966445
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966446
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966447
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 28e03e4d-f017-4ab4-b951-a7712d9ed46d
+        Seed: 371153071
+        m_Operators:
+        - rid: 4499585637605966448
+        - rid: 4499585637605966449
+        - rid: 4499585637605966450
+        - rid: 4499585637605966451
+        - rid: 4499585637605966452
+        history:
+        - rid: 4499585637605966447
+        IsPbrMode: 0
+    - rid: 4499585637605966448
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966449
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966450
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966451
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966452
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966453
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 787582ae-71e6-4b4a-9ce6-9805d843856e
+        Seed: 116916909
+        m_Operators:
+        - rid: 4499585637605966454
+        - rid: 4499585637605966455
+        - rid: 4499585637605966456
+        - rid: 4499585637605966457
+        - rid: 4499585637605966458
+        history:
+        - rid: 4499585637605966453
+        IsPbrMode: 1
+    - rid: 4499585637605966454
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966455
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966456
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966457
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966458
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966459
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: df7518ac-6d79-4967-8b5c-8f309c178c12
+        Seed: 3739841712
+        m_Operators:
+        - rid: 4499585637605966460
+        - rid: 4499585637605966461
+        - rid: 4499585637605966462
+        - rid: 4499585637605966463
+        - rid: 4499585637605966464
+        history:
+        - rid: 4499585637605966459
+        IsPbrMode: 0
+    - rid: 4499585637605966460
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966461
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966462
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966463
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966464
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966465
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 9f4a725e-a729-4260-bc1e-d7bb9626e16f
+        Seed: 3191716718
+        m_Operators:
+        - rid: 4499585637605966466
+        - rid: 4499585637605966467
+        - rid: 4499585637605966468
+        - rid: 4499585637605966469
+        - rid: 4499585637605966470
+        history:
+        - rid: 4499585637605966465
+        IsPbrMode: 0
+    - rid: 4499585637605966466
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966467
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966468
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966469
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966470
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966471
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 596caa52-03b4-462e-a853-acec28a39957
+        Seed: 2895941001
+        m_Operators:
+        - rid: 4499585637605966472
+        - rid: 4499585637605966473
+        - rid: 4499585637605966474
+        - rid: 4499585637605966475
+        - rid: 4499585637605966476
+        history:
+        - rid: 4499585637605966471
+        IsPbrMode: 0
+    - rid: 4499585637605966472
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966473
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966474
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966475
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966476
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966477
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 2d1bf83e-7845-4ae5-892f-bd5a32fc1c06
+        Seed: 2903141213
+        m_Operators:
+        - rid: 4499585637605966478
+        - rid: 4499585637605966479
+        - rid: 4499585637605966480
+        - rid: 4499585637605966481
+        - rid: 4499585637605966482
+        history:
+        - rid: 4499585637605966477
+        IsPbrMode: 0
+    - rid: 4499585637605966478
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966479
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966480
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966481
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966482
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966483
+      type: {class: ImageArtifact, ns: Unity.Muse.Texture, asm: Unity.Muse.Texture}
+      data:
+        Guid: 8af96cdf-6d68-4397-9e11-4744e81b712e
+        Seed: 3803756976
+        m_Operators:
+        - rid: 4499585637605966484
+        - rid: 4499585637605966485
+        - rid: 4499585637605966486
+        - rid: 4499585637605966487
+        - rid: 4499585637605966488
+        history:
+        - rid: 4499585637605966483
+        IsPbrMode: 0
+    - rid: 4499585637605966484
+      type: {class: GenerateOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: GenerateOperator
+          version: 0.0.1
+          settings:
+          - TextToImage
+          - 8
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966485
+      type: {class: PromptOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: PromptOperator
+          version: 0.0.2
+          settings:
+          - Generate texture to put for painting path in a forest with dirt
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966486
+      type: {class: LoraOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: LoraOperator
+          version: 0.0.1
+          settings:
+          - guid1
+          enabled: 0
+          assembly: 
+    - rid: 4499585637605966487
+      type: {class: ReferenceOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: ReferenceOperator
+          version: 0.0.2
+          settings:
+          - 
+          - 
+          - 0
+          - 20
+          - 
+          enabled: 1
+          assembly: 
+    - rid: 4499585637605966488
+      type: {class: MaskOperator, ns: Unity.Muse.Common, asm: Unity.Muse.Common}
+      data:
+        m_OperatorData:
+          type: MaskOperator
+          version: 0.0.1
+          settings:
+          - 
+          - True
+          - 1
+          enabled: 0
+          assembly: 
