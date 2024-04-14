@@ -3,10 +3,60 @@ guid: 322fa480dc0e85d4e9ecb0ef2bf40b8a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: byellowMat
+    second: {fileID: 2100000, guid: ca0495ba229c72240a4a01274121569e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clawsMat
+    second: {fileID: 2100000, guid: 87eea36d70362344ca421740c022b7c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dyellowMat
+    second: {fileID: 2100000, guid: de6030e81ce678344af363e1d67544db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: feather1Mat
+    second: {fileID: 2100000, guid: 864f3739d994dc648acd75ec8b81070a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: feather2Mat
+    second: {fileID: 2100000, guid: 6e760b6379b88c84ba949bbb8f012b7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: legMat
+    second: {fileID: 2100000, guid: af1dd79f0b06d694db135a23ac7f5dc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lwingMat
+    second: {fileID: 2100000, guid: 2fcb17c5514bb3c4fa5964e9a6373aba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: redMat
+    second: {fileID: 2100000, guid: 21763f9a1ef45a84fa89477ab7c49950, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rwingMat
+    second: {fileID: 2100000, guid: 8c7582955255117499d99f6ca179836d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shblackMat
+    second: {fileID: 2100000, guid: 657c98d2d0521ec4f9a9715d2d33757b, type: 2}
   materials:
     materialImportMode: 2
-    materialName: 2
+    materialName: 0
     materialSearch: 0
     materialLocation: 1
   animations:

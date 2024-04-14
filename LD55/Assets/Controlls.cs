@@ -71,6 +71,15 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""abfcb14b-499c-497e-8e3e-15ba023009f3"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,17 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2f0cbb0-7522-4a9f-9211-71ca914ce4e2"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -240,6 +260,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
         m_Keyboard_Sprint = m_Keyboard.FindAction("Sprint", throwIfNotFound: true);
         m_Keyboard_Jump = m_Keyboard.FindAction("Jump", throwIfNotFound: true);
+        m_Keyboard_Scroll = m_Keyboard.FindAction("Scroll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -306,6 +327,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Interact;
     private readonly InputAction m_Keyboard_Sprint;
     private readonly InputAction m_Keyboard_Jump;
+    private readonly InputAction m_Keyboard_Scroll;
     public struct KeyboardActions
     {
         private @Controlls m_Wrapper;
@@ -315,6 +337,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
         public InputAction @Sprint => m_Wrapper.m_Keyboard_Sprint;
         public InputAction @Jump => m_Wrapper.m_Keyboard_Jump;
+        public InputAction @Scroll => m_Wrapper.m_Keyboard_Scroll;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -339,6 +362,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Scroll.started += instance.OnScroll;
+            @Scroll.performed += instance.OnScroll;
+            @Scroll.canceled += instance.OnScroll;
         }
 
         private void UnregisterCallbacks(IKeyboardActions instance)
@@ -358,6 +384,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Scroll.started -= instance.OnScroll;
+            @Scroll.performed -= instance.OnScroll;
+            @Scroll.canceled -= instance.OnScroll;
         }
 
         public void RemoveCallbacks(IKeyboardActions instance)
@@ -382,5 +411,6 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnScroll(InputAction.CallbackContext context);
     }
 }

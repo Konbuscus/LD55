@@ -48,6 +48,9 @@ public class PlayerMovements : MonoBehaviour
         isInStair = false;
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+
+        AnimalSelector.instance.AddAnimalSelector(AnimalType.Bird);
+        AnimalSelector.instance.AddAnimalSelector(AnimalType.Cat);
     }
 
     // Update is called once per frame
@@ -141,7 +144,6 @@ public class PlayerMovements : MonoBehaviour
         if (Physics.Raycast(cameraHolder.position, cameraHolder.forward, out RaycastHit distHit, 25f))
         {
             float radius = 0.2f;
-            Debug.Log(radius);
             Interactable h = distHit.collider.GetComponent<Interactable>();
             if (h == null)
             {
@@ -205,5 +207,13 @@ public class PlayerMovements : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnScroll(InputValue v)
+    {
+        Vector2 val = v.Get<Vector2>();
+        Debug.Log(val);
+        if(val.sqrMagnitude > 0)
+            AnimalSelector.instance.ChangeSelection(val.y < 0);
     }
 }
