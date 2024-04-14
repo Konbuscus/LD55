@@ -14,11 +14,19 @@ public class CatMovements : AnimalMovements
     protected new void Start()
     {
         base.Start();
-        //targetMoves.Add(new MovePoint(new Vector3(3, 0, 6), MoveMode.Walk, 1f, 0.5f));
-        //targetMoves.Add(new MovePoint(new Vector3(2, 0.5f, 6), MoveMode.Jump));
+        /*
+        targetMoves.Add(new MovePoint(new Vector3(3, 0, 6), MoveMode.Walk, 1f, 0.5f));
+        targetMoves.Add(new MovePoint(new Vector3(2, 0.5f, 6), MoveMode.Jump, 0f, 1f));
+        targetMoves.Add(new MovePoint(Vector3.zero, MoveMode.PickUp, 0f, 1f));
+        targetMoves.Add(new MovePoint(new Vector3(3, 0, 6), MoveMode.Jump));
+        targetMoves.Add(new MovePoint(new Vector3(3, 0, 1), MoveMode.Walk, 0.5f));
+        */
+
 
         //Transform tmp = GameObject.Find("marker").transform;
         //SetMoveAroundTarget(tmp);
+
+        //SetHandledObject(GameObject.Find("Pickup Key Card"));
     }
 
     // Update is called once per frame
@@ -48,6 +56,7 @@ public class CatMovements : AnimalMovements
         {
             float height = (targetPoint.targetPosition.y - transform.position.y + 0.35f);
             height = Mathf.Log(1 + Mathf.Pow(1 + height, 2)) * 0.85f;
+            Mathf.Max(0, height);
             rb.AddForce(Vector3.up * jumpForce * height);
             animator.SetTrigger("Jump");
         }

@@ -36,6 +36,8 @@ public class PlayerMovements : MonoBehaviour
     public AudioClip footStepsHardStairs;
     public AudioSource footStepSource;
 
+    private List<string> inventory = new List<string>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -134,17 +136,17 @@ public class PlayerMovements : MonoBehaviour
     {
         if(Physics.Raycast(cameraHolder.position, cameraHolder.forward, out RaycastHit hit, 50f))
         {
-            Interactable interactable = hit.collider.GetComponent<Interactable>();
-            if (interactable != null)
+            interactableInFront = hit.collider.GetComponent<Interactable>();
+            if (interactableInFront != null)
             {
-                interactable.SetOutlined();
+                interactableInFront.SetOutlined();
             }
         }
     }
 
     void DebugToUI()
     {
-        UIDebuger.DisplayValue("isInStair", "isInStair : " + isInStair);
+        //UIDebuger.DisplayValue("isInStair", "isInStair : " + isInStair);
     }
 
     void OnMove(InputValue v)
@@ -161,11 +163,10 @@ public class PlayerMovements : MonoBehaviour
     {
         if (interactableInFront != null)
         {
-            bool hasInteract = interactableInFront.Interact();
-
-            if (hasInteract)
+            if (interactableInFront.Interact())
             {
-
+                inventory.Add(interactableInFront.name);
+                GameObject.Destroy(interactableInFront.gameObject);
             }
             else
             {

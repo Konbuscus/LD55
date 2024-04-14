@@ -7,7 +7,9 @@ public enum MoveMode
 {
     Walk,
     Jump,
-    Fly
+    Fly,
+    PickUp,
+    UnPickUp
 }
 
 public class MovePoint

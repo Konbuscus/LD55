@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+public enum InteractableEventType
+{
+    Carry,
+    Inventory
+}
+
 public class Interactable : MonoBehaviour
 {
-    public string interactEvent;
+    public InteractableEventType interactEventType = InteractableEventType.Inventory;
 
     private int outlinedCounter = 0;
     public GameObject objectToOutline;
 
     public virtual bool Interact()
     {   
-        if(interactEvent != null && interactEvent != "")
+        if(interactEventType == InteractableEventType.Inventory)
         {
-            //EventScriptsManager.StartEvent(interactEvent);
-            interactEvent = "";
             return true;
         }
         return false;

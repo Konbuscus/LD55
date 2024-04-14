@@ -32,6 +32,10 @@ public class AnimalMovements : MonoBehaviour
     public Transform floorDetector;
     private bool isLanded;
 
+    public Transform handledObjectHandler;
+    private bool isHandlingObject = false;
+    protected GameObject objectToHandle;
+
     // Start is called before the first frame update
     protected void Start()
     {
@@ -46,11 +50,10 @@ public class AnimalMovements : MonoBehaviour
         Look();
         Move();
 
-        RaycastHit[] hits = Physics.RaycastAll(floorDetector.position, Vector3.down, 0.25f);
-        hits = hits.Where(h => h.collider.gameObject != gameObject).ToArray();
-        isLanded = hits.Length > 0;
+        CheckLanded();
 
         Animate();
+        HandleObject();
     }
 
     void Move()
@@ -65,7 +68,19 @@ public class AnimalMovements : MonoBehaviour
                     StartMove();
                     moveStarted = true;
                 }
-                MoveToward();
+
+                if (targetPoint.moveMode == MoveMode.PickUp)
+                {
+                    PickUpClosestObject();
+                }
+                else if (targetPoint.moveMode == MoveMode.UnPickUp)
+                {
+                    ReleaseHandledObject();
+                }
+                else if (targetPoint.moveMode == MoveMode.Walk || targetPoint.moveMode == MoveMode.Jump || targetPoint.moveMode == MoveMode.Fly)
+                {
+                    MoveToward();
+                }
             }
         }
         else
@@ -77,9 +92,15 @@ public class AnimalMovements : MonoBehaviour
                 refTime = Time.time;
                 targetMoves.RemoveAt(0);
                 moveStarted = false;
-                Debug.Log(targetMoves.Count);
             }
         }
+    }
+
+    void CheckLanded()
+    {
+        RaycastHit[] hits = Physics.RaycastAll(floorDetector.position, Vector3.down, 0.25f);
+        hits = hits.Where(h => h.collider.gameObject != gameObject).ToArray();
+        isLanded = hits.Length > 0;
     }
 
     protected virtual void StartMove()
@@ -94,17 +115,15 @@ public class AnimalMovements : MonoBehaviour
         //UIDebuger.DisplayValue("dist", dist.ToString());
         if (dist < targetPoint.stopDistance)
         {
-            curentWaitTime = targetPoint.timeAfter;
-            refTime = Time.time;
-            targetPoint = null;
-            rb.velocity = Vector3.zero;
+            EndStep();
+
             return;
         }
 
 
         Vector3 moveChange;
 
-        if (targetPoint.moveMode == MoveMode.Walk)
+        if (targetPoint.moveMode == MoveMode.Walk || (targetPoint.moveMode == MoveMode.Jump && floorDetector.position.y > targetPoint.targetPosition.y + 0.2f))
         {
             moveChange = flatLookDir * moveSpeed * moveSpeedFactor * Time.deltaTime;
         }
@@ -113,7 +132,7 @@ public class AnimalMovements : MonoBehaviour
             moveChange = lookDir * moveSpeed * moveSpeedFactor * Time.deltaTime;
         }
 
-        //UIDebuger.DisplayValue("moveChange", moveChange.ToString());
+        UIDebuger.DisplayValue("moveChange", moveChange.ToString());
         rb.velocity += moveChange;
 
         moveSpeedAnimationSpeed = rb.velocity.magnitude / 2f;
@@ -133,9 +152,93 @@ public class AnimalMovements : MonoBehaviour
         }
     }
 
+    void HandleObject()
+    {
+        if (objectToHandle != null && !isHandlingObject && HasPickedUp())
+        {
+            objectToHandle.transform.parent = handledObjectHandler;
+            Transform tmp = objectToHandle.GetComponent<Handlable>().handlePoint;
+            //objectToHandle.transform.localPosition = tmp.localPosition * tmp.localScale.x;
+            objectToHandle.transform.localRotation = tmp.localRotation;
+            objectToHandle.transform.position = handledObjectHandler.position + (objectToHandle.transform.position - tmp.position);
+            isHandlingObject = true;
+        }
+        else if(objectToHandle == null && isHandlingObject && HasUnPickedUp())
+        {
+            if (handledObjectHandler.childCount > 0)
+            {
+                handledObjectHandler.GetChild(0).parent = null;
+            }
+            isHandlingObject = false;
+        }
+    }
+
     protected void Animate()
     {
         animator.SetBool("Landed", isLanded);
+        Debug.Log(rb.velocity.magnitude);
         animator.SetFloat("Speed", moveSpeedAnimationSpeed);
+    }
+
+    protected void EndStep()
+    {
+        if (targetPoint != null)
+        {
+            curentWaitTime = targetPoint.timeAfter;
+            refTime = Time.time;
+            targetPoint = null;
+            rb.velocity = Vector3.zero;
+            moveSpeedAnimationSpeed = rb.velocity.magnitude / 2f;
+        }
+    }
+
+    protected virtual bool HasPickedUp()
+    {
+        EndStep();
+
+        return true;
+    }
+
+    protected virtual bool HasUnPickedUp()
+    {
+        EndStep();
+
+        return true;
+    }
+
+    protected void SetHandledObject(GameObject o)
+    {
+        if (!isHandlingObject)
+        {
+            objectToHandle = o;
+        }
+    }
+
+    protected void ReleaseHandledObject()
+    {
+        if (isHandlingObject)
+        {
+            objectToHandle = null;
+            moveSpeedAnimationSpeed = 0;
+        }
+        else
+        {
+            EndStep();
+        }
+    }
+
+    protected void PickUpClosestObject()
+    {
+        Collider[] cols = Physics.OverlapSphere(handledObjectHandler.position, 1f);
+        Handlable h = cols.Select(c => c.GetComponent<Handlable>()).FirstOrDefault(c =>  c != null);
+        if (h)
+        {
+            SetHandledObject(h.gameObject);
+            moveSpeedAnimationSpeed = 0;
+        }
+        else
+        {
+            EndStep();
+        }
     }
 }
