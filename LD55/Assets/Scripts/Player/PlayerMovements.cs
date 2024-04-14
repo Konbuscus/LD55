@@ -39,7 +39,6 @@ public class PlayerMovements : MonoBehaviour
 
     private List<string> inventory = new List<string>();
 
-    private List<GameObject> invokatedAnimals;
     private GameObject selectedAnimal;
 
     public List<MyObjectObject<AnimalType, GameObject>> animalsPrefabs;
@@ -53,6 +52,7 @@ public class PlayerMovements : MonoBehaviour
 
         AnimalSelector.instance.AddAnimalSelector(AnimalType.Bird);
         AnimalSelector.instance.AddAnimalSelector(AnimalType.Cat);
+        AnimalSelector.instance.AddAnimalSelector(AnimalType.Gorilla);
     }
 
     // Update is called once per frame

@@ -663,6 +663,7 @@ MonoBehaviour:
   jumpForce: 2500
   floorDetector: {fileID: 2779171554926277841}
   handledObjectHandler: {fileID: 8158252309373767250}
+  lifeTime: 20
 --- !u!54 &7984962105547992722
 Rigidbody:
   m_ObjectHideFlags: 0

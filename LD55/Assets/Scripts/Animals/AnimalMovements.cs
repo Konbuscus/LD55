@@ -47,17 +47,26 @@ public class AnimalMovements : MonoBehaviour
     private bool isHandlingObject = false;
     protected GameObject objectToHandle;
 
+    public float lifeTime;
+    private float refLifeTime;
+
     // Start is called before the first frame update
     protected void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         refTime = Time.time;
+        refLifeTime = Time.time;
     }
 
     // Update is called once per frame
     protected void Update()
     {
+        if(Time.time > refLifeTime + lifeTime)
+        {
+            GameObject.Destroy(gameObject);
+        }
+
         Look();
         Move();
 

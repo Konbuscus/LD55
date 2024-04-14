@@ -604,6 +604,8 @@ MonoBehaviour:
     obj2: {fileID: 21300000, guid: 54a0cca6876a74d44972b9fc790167a9, type: 3}
   - obj1: 1
     obj2: {fileID: 21300000, guid: 2e8d8af0e72f17446a53ce9e0fb99707, type: 3}
+  - obj1: 5
+    obj2: {fileID: 21300000, guid: 1c7bd619e3d57bd4eaf590fb0b6ec8e6, type: 3}
 --- !u!1 &6202374026671492674
 GameObject:
   m_ObjectHideFlags: 0
