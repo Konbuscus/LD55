@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 293733019439391697}
   - component: {fileID: 5976955217867553115}
   - component: {fileID: 4039769442548986577}
+  - component: {fileID: 2486398238388142326}
   m_Layer: 0
   m_Name: bird
   m_TagString: Untagged
@@ -442,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e414f7f7611de20468650afcd8dee533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalType: 0
   isLandedType: 0
   moveSpeed: 2
   moveSpeedFactor: 1
@@ -496,6 +498,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 109.7
   m_Center: {x: 0, y: 152.07, z: 11.9}
+--- !u!114 &2486398238388142326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024768829080144829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39faa0f78c47cd4f84390bf3c048d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactEventType: 2
+  objectsToOutline:
+  - {fileID: 1832117600481350458}
+  - {fileID: 554555540584364894}
+  - {fileID: 2387147734501602342}
+  - {fileID: 790013074476982211}
+  - {fileID: 7402610588474318548}
+  - {fileID: 5476962556056358271}
+  mainGameObject: {fileID: 3024768829080144829}
 --- !u!1 &3419762562440359611
 GameObject:
   m_ObjectHideFlags: 0

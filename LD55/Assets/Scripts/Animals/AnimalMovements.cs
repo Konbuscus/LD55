@@ -145,7 +145,7 @@ public class AnimalMovements : MonoBehaviour
         }
         else
         {
-            moveChange = lookDir * moveSpeed * moveSpeedFactor * Time.deltaTime;
+            moveChange = lookDir.normalized * moveSpeed * moveSpeedFactor * Time.deltaTime;
         }
 
         UIDebuger.DisplayValue("moveChange", moveChange.ToString());

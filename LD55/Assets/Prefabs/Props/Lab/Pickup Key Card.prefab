@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handlePoint: {fileID: 3613781361845180317}
+  waypoints: []
 --- !u!114 &7604420654792799150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,4 +202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactEventType: 1
-  objectToOutline: {fileID: 2842164971168239678}
+  objectsToOutline:
+  - {fileID: 2842164971168239678}
+  mainGameObject: {fileID: 5569064977106249712}

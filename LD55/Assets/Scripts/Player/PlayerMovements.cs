@@ -39,6 +39,9 @@ public class PlayerMovements : MonoBehaviour
 
     private List<string> inventory = new List<string>();
 
+    private List<GameObject> invokatedAnimals;
+    private GameObject selectedAnimal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -135,13 +138,21 @@ public class PlayerMovements : MonoBehaviour
 
     private void CheckInteractable()
     {
-
-        RaycastHit[] hits = Physics.SphereCastAll(cameraHolder.position, 0.2f, cameraHolder.forward, 25f);
-        Interactable h = hits.Select(h => h.collider.GetComponent<Interactable>()).FirstOrDefault(h => h != null);
-        if(h != null)
+        if (Physics.Raycast(cameraHolder.position, cameraHolder.forward, out RaycastHit distHit, 25f))
         {
-            interactableInFront = h;
-            h.SetOutlined();
+            float radius = 0.2f;
+            Debug.Log(radius);
+            Interactable h = distHit.collider.GetComponent<Interactable>();
+            if (h == null)
+            {
+                RaycastHit[] hits = Physics.SphereCastAll(cameraHolder.position, radius, cameraHolder.forward, 25f);
+                h = hits.Select(h => h.collider.GetComponent<Interactable>()).FirstOrDefault(h => h != null);
+            }
+            if (h != null)
+            {
+                interactableInFront = h;
+                h.SetOutlined();
+            }
         }
     }
 
@@ -164,21 +175,33 @@ public class PlayerMovements : MonoBehaviour
     {
         if (interactableInFront != null)
         {
-            if (Vector3.Distance(interactableInFront.transform.position, cameraHolder.position) > 2)
+            if(interactableInFront.interactEventType == InteractableEventType.Animal)
             {
-                AnimalMovements a = GameObject.Find("cat").GetComponent<AnimalMovements>();
-                a.SetTargetMoves(interactableInFront.GetComponent<Handlable>().GetWaypoints(a.animalType));
+                selectedAnimal = interactableInFront.mainGameObject;
             }
-            else
+            else if(interactableInFront.interactEventType == InteractableEventType.Inventory)
             {
-                if (interactableInFront.Interact())
+                if (Vector3.Distance(interactableInFront.mainGameObject.transform.position, cameraHolder.position) > 2)
                 {
-                    inventory.Add(interactableInFront.name);
-                    GameObject.Destroy(interactableInFront.gameObject);
+                    if(selectedAnimal == null)
+                    {
+                        Debug.Log("no animal selected !");
+                        return;
+                    }
+                    AnimalMovements a = selectedAnimal.GetComponent<AnimalMovements>();
+                    a.SetTargetMoves(interactableInFront.GetComponent<Handlable>().GetWaypoints(a.animalType));
                 }
                 else
                 {
-                    Debug.Log("Can't interact !");
+                    if (interactableInFront.Interact())
+                    {
+                        inventory.Add(interactableInFront.mainGameObject.name);
+                        GameObject.Destroy(interactableInFront.mainGameObject);
+                    }
+                    else
+                    {
+                        Debug.Log("Can't interact !");
+                    }
                 }
             }
         }

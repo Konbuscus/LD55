@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public enum InteractableEventType
 {
     Carry,
-    Inventory
+    Inventory,
+    Animal
 }
 
 public class Interactable : MonoBehaviour
@@ -15,7 +16,8 @@ public class Interactable : MonoBehaviour
     public InteractableEventType interactEventType = InteractableEventType.Inventory;
 
     private int outlinedCounter = 0;
-    public GameObject objectToOutline;
+    public List<GameObject> objectsToOutline;
+    public GameObject mainGameObject;
 
     public virtual bool Interact()
     {   
@@ -31,13 +33,19 @@ public class Interactable : MonoBehaviour
         outlinedCounter--;
         if (outlinedCounter == 0)
         {
-            objectToOutline.layer = 0;
+            foreach (GameObject obj in objectsToOutline)
+            {
+                obj.layer = 0;
+            }
         }
     }
 
     public void SetOutlined()
     {
         outlinedCounter = 5;
-        objectToOutline.layer = LayerMask.NameToLayer("Outlined");
+        foreach (GameObject obj in objectsToOutline)
+        {
+            obj.layer = LayerMask.NameToLayer("Outlined");
+        }
     }
 }

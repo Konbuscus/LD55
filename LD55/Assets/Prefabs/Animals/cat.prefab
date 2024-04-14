@@ -548,10 +548,20 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1424233415850671993}
+    - targetCorrespondingSourceObject: {fileID: 6494718034412713224, guid: 2f411e376b88f594bbd31aedf702ae17,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 911455312609665124}
   m_SourcePrefab: {fileID: 100100000, guid: 2f411e376b88f594bbd31aedf702ae17, type: 3}
 --- !u!4 &383223859725383658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1891250713075994504, guid: 2f411e376b88f594bbd31aedf702ae17,
+    type: 3}
+  m_PrefabInstance: {fileID: 6958502804210321298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066757638267462037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8952883869758383623, guid: 2f411e376b88f594bbd31aedf702ae17,
     type: 3}
   m_PrefabInstance: {fileID: 6958502804210321298}
   m_PrefabAsset: {fileID: 0}
@@ -584,6 +594,22 @@ CapsuleCollider:
   m_Height: 0.0005
   m_Direction: 1
   m_Center: {x: 0, y: 0.00018, z: 0.0001}
+--- !u!114 &911455312609665124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228966681889354394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39faa0f78c47cd4f84390bf3c048d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactEventType: 2
+  objectsToOutline:
+  - {fileID: 2066757638267462037}
+  mainGameObject: {fileID: 7805011654018153155}
 --- !u!4 &7429576075488354425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2f411e376b88f594bbd31aedf702ae17,
@@ -630,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9803f69207521394988b37cfbd745fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalType: 0
   isLandedType: 1
   moveSpeed: 2
   moveSpeedFactor: 10
