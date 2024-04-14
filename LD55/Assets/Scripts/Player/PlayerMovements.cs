@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Sentis.Layers;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -134,13 +135,13 @@ public class PlayerMovements : MonoBehaviour
 
     private void CheckInteractable()
     {
-        if(Physics.Raycast(cameraHolder.position, cameraHolder.forward, out RaycastHit hit, 50f))
+
+        RaycastHit[] hits = Physics.SphereCastAll(cameraHolder.position, 0.2f, cameraHolder.forward, 25f);
+        Interactable h = hits.Select(h => h.collider.GetComponent<Interactable>()).FirstOrDefault(h => h != null);
+        if(h != null)
         {
-            interactableInFront = hit.collider.GetComponent<Interactable>();
-            if (interactableInFront != null)
-            {
-                interactableInFront.SetOutlined();
-            }
+            interactableInFront = h;
+            h.SetOutlined();
         }
     }
 
@@ -163,14 +164,22 @@ public class PlayerMovements : MonoBehaviour
     {
         if (interactableInFront != null)
         {
-            if (interactableInFront.Interact())
+            if (Vector3.Distance(interactableInFront.transform.position, cameraHolder.position) > 2)
             {
-                inventory.Add(interactableInFront.name);
-                GameObject.Destroy(interactableInFront.gameObject);
+                AnimalMovements a = GameObject.Find("cat").GetComponent<AnimalMovements>();
+                a.SetTargetMoves(interactableInFront.GetComponent<Handlable>().GetWaypoints(a.animalType));
             }
             else
             {
-                Debug.Log("Can't interact !");
+                if (interactableInFront.Interact())
+                {
+                    inventory.Add(interactableInFront.name);
+                    GameObject.Destroy(interactableInFront.gameObject);
+                }
+                else
+                {
+                    Debug.Log("Can't interact !");
+                }
             }
         }
     }

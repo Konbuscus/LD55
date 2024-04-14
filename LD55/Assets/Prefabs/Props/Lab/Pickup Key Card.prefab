@@ -125,11 +125,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3619099142778357334, guid: f27ffb3d75829164e8855c0c899f5697,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8660153406010988782}
+      addedObject: {fileID: 7358021328335841444}
     - targetCorrespondingSourceObject: {fileID: 3619099142778357334, guid: f27ffb3d75829164e8855c0c899f5697,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7358021328335841444}
+      addedObject: {fileID: 8660153406010988782}
     - targetCorrespondingSourceObject: {fileID: 3619099142778357334, guid: f27ffb3d75829164e8855c0c899f5697,
         type: 3}
       insertIndex: -1
@@ -154,19 +154,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9183073191793598886}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8660153406010988782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5569064977106249712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cf89938f9e4d44497601eb71e71692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handlePoint: {fileID: 3613781361845180317}
 --- !u!65 &7358021328335841444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -188,6 +175,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.67, z: 0.08}
   m_Center: {x: 0, y: 0.04, z: 0}
+--- !u!114 &8660153406010988782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569064977106249712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cf89938f9e4d44497601eb71e71692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handlePoint: {fileID: 3613781361845180317}
 --- !u!114 &7604420654792799150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,5 +200,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39faa0f78c47cd4f84390bf3c048d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactEvent: 
+  interactEventType: 1
   objectToOutline: {fileID: 2842164971168239678}

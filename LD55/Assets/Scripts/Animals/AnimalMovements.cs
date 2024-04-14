@@ -7,6 +7,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+public enum AnimalType
+{
+    Bird,
+    Cat,
+    Mouse,
+    Monkey,
+    Boar,
+    Gorilla
+}
+
 public class AnimalMovements : MonoBehaviour
 {
     protected Rigidbody rb;
@@ -22,6 +32,7 @@ public class AnimalMovements : MonoBehaviour
     protected float refTime;
     protected bool moveStarted = false;
 
+    public AnimalType animalType;
     public bool isLandedType = true;
     public float moveSpeed = 2;
     public float moveSpeedFactor = 1f;
@@ -87,7 +98,11 @@ public class AnimalMovements : MonoBehaviour
         {
             if(targetMoves.Count > 0 && refTime + curentWaitTime < Time.time)
             {
+                Debug.LogWarning("next");
                 targetPoint = targetMoves[0];
+                Debug.LogWarning(targetPoint.moveMode.ToString());
+                Debug.LogWarning(targetPoint.targetPosition.ToString());
+                Debug.LogWarning(targetPoint.targetGameobject.transform.position.ToString());
                 curentWaitTime = targetPoint.timeBefore;
                 refTime = Time.time;
                 targetMoves.RemoveAt(0);
@@ -110,8 +125,9 @@ public class AnimalMovements : MonoBehaviour
 
     void MoveToward()
     {
-        float dist = Mathf.Sqrt(Mathf.Pow(targetPoint.targetPosition.x - transform.position.x, 2) + Mathf.Pow(targetPoint.targetPosition.z - transform.position.z, 2));
-        //UIDebuger.DisplayValue("targetPoint", targetPoint.ToString());
+        Vector3 targetPosition = ((targetPoint.targetGameobject != null) ? targetPoint.targetGameobject.transform.position : targetPoint.targetPosition);
+        float dist = Mathf.Sqrt(Mathf.Pow(targetPosition.x - transform.position.x, 2) + Mathf.Pow(targetPosition.z - transform.position.z, 2));
+        UIDebuger.DisplayValue("targetPosition", targetPosition.ToString());
         //UIDebuger.DisplayValue("dist", dist.ToString());
         if (dist < targetPoint.stopDistance)
         {
@@ -123,7 +139,7 @@ public class AnimalMovements : MonoBehaviour
 
         Vector3 moveChange;
 
-        if (targetPoint.moveMode == MoveMode.Walk || (targetPoint.moveMode == MoveMode.Jump && floorDetector.position.y > targetPoint.targetPosition.y + 0.2f))
+        if (targetPoint.moveMode == MoveMode.Walk || (targetPoint.moveMode == MoveMode.Jump && floorDetector.position.y > targetPosition.y + 0.2f))
         {
             moveChange = flatLookDir * moveSpeed * moveSpeedFactor * Time.deltaTime;
         }
@@ -142,7 +158,9 @@ public class AnimalMovements : MonoBehaviour
     {
         if(targetPoint != null)
         {
-            lookDir = targetPoint.targetPosition - transform.position;
+            Vector3 targetPosition = ((targetPoint.targetGameobject != null) ? targetPoint.targetGameobject.transform.position : targetPoint.targetPosition);
+
+            lookDir = targetPosition - transform.position;
             flatLookDir = lookDir.normalized;
             flatLookDir.y = 0;
 
@@ -176,7 +194,6 @@ public class AnimalMovements : MonoBehaviour
     protected void Animate()
     {
         animator.SetBool("Landed", isLanded);
-        Debug.Log(rb.velocity.magnitude);
         animator.SetFloat("Speed", moveSpeedAnimationSpeed);
     }
 
@@ -240,5 +257,10 @@ public class AnimalMovements : MonoBehaviour
         {
             EndStep();
         }
+    }
+
+    public void SetTargetMoves(List<MovePoint> targetMoves)
+    {
+        this.targetMoves = targetMoves;
     }
 }
