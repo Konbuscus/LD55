@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9803f69207521394988b37cfbd745fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalType: 0
+  animalType: 1
   isLandedType: 1
   moveSpeed: 2
   moveSpeedFactor: 10

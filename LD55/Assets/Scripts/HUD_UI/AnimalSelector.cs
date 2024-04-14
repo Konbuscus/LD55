@@ -47,4 +47,9 @@ public class AnimalSelector : MonoBehaviour
             animalSelectorItem[i].obj2.transform.Find("Selector").GetComponent<Image>().enabled = (i == selectedIndex);
         }
     }
+
+    public AnimalType GetSelectedAnimalType()
+    {
+        return animalSelectorItem[selectedIndex].obj1;
+    }
 }

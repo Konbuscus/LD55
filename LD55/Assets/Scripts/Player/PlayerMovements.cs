@@ -42,6 +42,8 @@ public class PlayerMovements : MonoBehaviour
     private List<GameObject> invokatedAnimals;
     private GameObject selectedAnimal;
 
+    public List<MyObjectObject<AnimalType, GameObject>> animalsPrefabs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -212,8 +214,16 @@ public class PlayerMovements : MonoBehaviour
     void OnScroll(InputValue v)
     {
         Vector2 val = v.Get<Vector2>();
-        Debug.Log(val);
         if(val.sqrMagnitude > 0)
             AnimalSelector.instance.ChangeSelection(val.y < 0);
+    }
+
+    void OnInvoke(InputValue v)
+    {
+        if (Physics.Raycast(cameraHolder.position, cameraHolder.forward, out RaycastHit hit, 5f))
+        {
+            GameObject tmp = Instantiate(animalsPrefabs.FirstOrDefault(x => x.obj1 == AnimalSelector.instance.GetSelectedAnimalType()).obj2);
+            tmp.transform.position = hit.point + Vector3.up * 0.25f;
+        }
     }
 }

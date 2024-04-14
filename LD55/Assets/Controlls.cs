@@ -80,6 +80,15 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Invoke"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a5a933e-6b8e-43ba-9af4-b5c06b74ce5f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,83 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                     ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""d55097c3-5887-4d9f-b322-2b67a5915435"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""cbb75c45-e0cb-4126-88f2-8b78e68e0203"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""fcd3e31d-b30c-46d2-9ee1-cb5a491f4e83"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""16436890-047c-4b7e-bdd9-02e956ae183c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""75373d45-6079-460b-89c9-e553403dc48f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b553889b-f2a4-4cbb-b70b-0eb94b956920"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Invoke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc21b496-6d15-403b-8bf1-7575124ff189"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Invoke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -261,6 +347,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         m_Keyboard_Sprint = m_Keyboard.FindAction("Sprint", throwIfNotFound: true);
         m_Keyboard_Jump = m_Keyboard.FindAction("Jump", throwIfNotFound: true);
         m_Keyboard_Scroll = m_Keyboard.FindAction("Scroll", throwIfNotFound: true);
+        m_Keyboard_Invoke = m_Keyboard.FindAction("Invoke", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -328,6 +415,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Sprint;
     private readonly InputAction m_Keyboard_Jump;
     private readonly InputAction m_Keyboard_Scroll;
+    private readonly InputAction m_Keyboard_Invoke;
     public struct KeyboardActions
     {
         private @Controlls m_Wrapper;
@@ -338,6 +426,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Keyboard_Sprint;
         public InputAction @Jump => m_Wrapper.m_Keyboard_Jump;
         public InputAction @Scroll => m_Wrapper.m_Keyboard_Scroll;
+        public InputAction @Invoke => m_Wrapper.m_Keyboard_Invoke;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -365,6 +454,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
             @Scroll.started += instance.OnScroll;
             @Scroll.performed += instance.OnScroll;
             @Scroll.canceled += instance.OnScroll;
+            @Invoke.started += instance.OnInvoke;
+            @Invoke.performed += instance.OnInvoke;
+            @Invoke.canceled += instance.OnInvoke;
         }
 
         private void UnregisterCallbacks(IKeyboardActions instance)
@@ -387,6 +479,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
             @Scroll.started -= instance.OnScroll;
             @Scroll.performed -= instance.OnScroll;
             @Scroll.canceled -= instance.OnScroll;
+            @Invoke.started -= instance.OnInvoke;
+            @Invoke.performed -= instance.OnInvoke;
+            @Invoke.canceled -= instance.OnInvoke;
         }
 
         public void RemoveCallbacks(IKeyboardActions instance)
@@ -412,5 +507,6 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
+        void OnInvoke(InputAction.CallbackContext context);
     }
 }
