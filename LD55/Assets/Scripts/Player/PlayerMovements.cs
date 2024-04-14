@@ -183,7 +183,7 @@ public class PlayerMovements : MonoBehaviour
             {
                 selectedAnimal = interactableInFront.mainGameObject;
             }
-            else if(interactableInFront.interactEventType == InteractableEventType.Inventory)
+            else if(interactableInFront.interactEventType == InteractableEventType.Inventory || interactableInFront.interactEventType == InteractableEventType.Carry)
             {
                 if (Vector3.Distance(interactableInFront.mainGameObject.transform.position, cameraHolder.position) > 2)
                 {
@@ -223,7 +223,7 @@ public class PlayerMovements : MonoBehaviour
         if (Physics.Raycast(cameraHolder.position, cameraHolder.forward, out RaycastHit hit, 5f))
         {
             GameObject tmp = Instantiate(animalsPrefabs.FirstOrDefault(x => x.obj1 == AnimalSelector.instance.GetSelectedAnimalType()).obj2);
-            tmp.transform.position = hit.point + Vector3.up * 0.25f;
+            tmp.transform.position = hit.point + Vector3.up * (tmp.transform.position.y - tmp.transform.Find("FloorDetector").position.y);
         }
     }
 }

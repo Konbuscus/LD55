@@ -44,7 +44,7 @@ public class AnimalMovements : MonoBehaviour
     private bool isLanded;
 
     public Transform handledObjectHandler;
-    private bool isHandlingObject = false;
+    protected bool isHandlingObject = false;
     protected GameObject objectToHandle;
 
     public float lifeTime;
@@ -89,11 +89,11 @@ public class AnimalMovements : MonoBehaviour
                     moveStarted = true;
                 }
 
-                if (targetPoint.moveMode == MoveMode.PickUp)
+                if (targetPoint.moveMode == MoveMode.PickUp && !objectToHandle)
                 {
                     PickUpClosestObject();
                 }
-                else if (targetPoint.moveMode == MoveMode.UnPickUp)
+                else if (targetPoint.moveMode == MoveMode.UnPickUp && objectToHandle)
                 {
                     ReleaseHandledObject();
                 }
@@ -109,6 +109,7 @@ public class AnimalMovements : MonoBehaviour
             {
                 Debug.LogWarning("next");
                 targetPoint = targetMoves[0];
+                UIDebuger.DisplayValue("moveMode", targetPoint.moveMode.ToString());
                 Debug.LogWarning(targetPoint.moveMode.ToString());
                 Debug.LogWarning(targetPoint.targetPosition.ToString());
                 Debug.LogWarning(targetPoint.targetGameobject.transform.position.ToString());
@@ -232,7 +233,7 @@ public class AnimalMovements : MonoBehaviour
         return true;
     }
 
-    protected void SetHandledObject(GameObject o)
+    protected virtual void SetHandledObject(GameObject o)
     {
         if (!isHandlingObject)
         {
@@ -240,7 +241,7 @@ public class AnimalMovements : MonoBehaviour
         }
     }
 
-    protected void ReleaseHandledObject()
+    protected virtual void ReleaseHandledObject()
     {
         if (isHandlingObject)
         {
@@ -271,5 +272,6 @@ public class AnimalMovements : MonoBehaviour
     public void SetTargetMoves(List<MovePoint> targetMoves)
     {
         this.targetMoves = targetMoves;
+        Debug.Log("ok");
     }
 }
