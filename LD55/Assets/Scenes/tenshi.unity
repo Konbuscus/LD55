@@ -554,22 +554,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 116.59
       objectReference: {fileID: 0}
-    - target: {fileID: 2196841713620973272, guid: af1198f9e02994340b9be6730435d720,
-        type: 3}
-      propertyPath: animalsPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196841713620973272, guid: af1198f9e02994340b9be6730435d720,
-        type: 3}
-      propertyPath: animalsPrefabs.Array.data[2].obj1
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196841713620973272, guid: af1198f9e02994340b9be6730435d720,
-        type: 3}
-      propertyPath: animalsPrefabs.Array.data[2].obj2
-      value: 
-      objectReference: {fileID: 7334533175917768329, guid: 5ec899daa44fff8449fba58644410bac,
-        type: 3}
     - target: {fileID: 3310730267482227870, guid: af1198f9e02994340b9be6730435d720,
         type: 3}
       propertyPath: m_LocalPosition.x

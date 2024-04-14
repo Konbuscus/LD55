@@ -284,6 +284,8 @@ MonoBehaviour:
     obj2: {fileID: 3024768829080144829, guid: 193c2164bceee2a4090242c8e017d7f4, type: 3}
   - obj1: 1
     obj2: {fileID: 7805011654018153155, guid: cac5c2de16e062c4e97525dbeb85bd92, type: 3}
+  - obj1: 5
+    obj2: {fileID: 7334533175917768329, guid: 5ec899daa44fff8449fba58644410bac, type: 3}
 --- !u!114 &3491585719504501819
 MonoBehaviour:
   m_ObjectHideFlags: 0
