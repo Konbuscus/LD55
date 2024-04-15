@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class DoorController : MonoBehaviour
 {
     public GameObject leftDoor;
@@ -8,31 +8,63 @@ public class DoorController : MonoBehaviour
 
     public void ToggleDoors()
     {
+        Debug.Log("SLT");
         if (isOpen)
         {
-            CloseDoors();
+            StartCoroutine(CloseDoors());
         }
         else
         {
-            OpenDoors();
+            StartCoroutine(OpenDoors());
         }
 
         isOpen = !isOpen;
     }
 
-    private void OpenDoors()
+    IEnumerator OpenDoors()
     {
-        // Add your code here to open the doors
-        // For example, if you are rotating the door to open
-        leftDoor.transform.Rotate(Vector3.up * 90);
-        rightDoor.transform.Rotate(Vector3.up * -90);
+        Vector3 leftStartPos = leftDoor.transform.position;
+        Vector3 leftEndPos = leftStartPos + new Vector3(0, 0, 1);  
+
+        Vector3 rightStartPos = rightDoor.transform.position;
+        Vector3 rightEndPos = rightStartPos + new Vector3(0, 0, -1);  
+
+        float elapsedTime = 0;
+        float totalAnimationTime = 1f;   // Duration in seconds
+
+        while (elapsedTime < totalAnimationTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float amount = elapsedTime / totalAnimationTime;
+
+            leftDoor.transform.position = Vector3.Lerp(leftStartPos, leftEndPos, amount);
+            rightDoor.transform.position = Vector3.Lerp(rightStartPos, rightEndPos, amount);
+
+            yield return null;
+        }
     }
 
-    private void CloseDoors()
+    IEnumerator CloseDoors()
     {
-        // Add your code here to close the doors
-        // For example, if you are rotating the door to close
-        leftDoor.transform.Rotate(Vector3.up * -90);
-        rightDoor.transform.Rotate(Vector3.up * 90);
+        Vector3 leftStartPos = leftDoor.transform.position;
+        Vector3 leftEndPos = leftStartPos + new Vector3(0, 0, -1);  
+
+        Vector3 rightStartPos = rightDoor.transform.position;
+        Vector3 rightEndPos = rightStartPos + new Vector3(0, 0, 1);  
+
+        float elapsedTime = 0;
+        float totalAnimationTime = 1f;   // Duration in seconds
+
+        while (elapsedTime < totalAnimationTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float amount = elapsedTime / totalAnimationTime;
+
+            leftDoor.transform.position = Vector3.Lerp(leftStartPos, leftEndPos, amount);
+            rightDoor.transform.position = Vector3.Lerp(rightStartPos, rightEndPos, amount);
+
+            yield return null;
+        }
     }
+
 }

@@ -214,7 +214,12 @@ public class PlayerMovements : MonoBehaviour
             }
             else if(interactableInFront.interactEventType == InteractableEventType.Computer)
             {
+
                 ComputerDoorInteraction computer = interactableInFront.mainGameObject.GetComponent<ComputerDoorInteraction>();
+                if(computer is null)
+                {
+                    return;
+                }
                 computer.InteractWithDoors();
             }
         }

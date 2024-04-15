@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4928336624317655035
 RectTransform:
   m_ObjectHideFlags: 0
@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 2792376972447036574}
   - component: {fileID: 798162036291317047}
   - component: {fileID: 3033713469608109361}
+  - component: {fileID: 7329331468801652966}
   m_Layer: 0
   m_Name: Props_ComputerSmall
   m_TagString: Untagged
@@ -459,3 +460,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.007512153, y: 0.0045638513, z: 0.015377694}
   m_Center: {x: 2.8079065e-11, y: -0.00094210316, z: 0.007647157}
+--- !u!114 &7329331468801652966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631584739586446453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39faa0f78c47cd4f84390bf3c048d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactEventType: 3
+  objectsToOutline:
+  - {fileID: 6309583510319364120}
+  mainGameObject: {fileID: 8631584739586446453}
