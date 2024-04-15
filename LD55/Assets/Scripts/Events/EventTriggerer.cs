@@ -82,10 +82,14 @@ public class SpawnAnimalEvent : Event
 public class EventTriggerer : MonoBehaviour
 {
     public EventName eventToTrigger;
+    public EventName requiredEvent;
 
     private void OnTriggerEnter(Collider other)
     {
-        EventManager_.instance.TrigerEvent(eventToTrigger);
-        gameObject.SetActive(false);
+        if (requiredEvent == EventName.None || EventManager_.instance.trigeredList.Contains(requiredEvent))
+        {
+            EventManager_.instance.TrigerEvent(eventToTrigger);
+            gameObject.SetActive(false);
+        }
     }
 }

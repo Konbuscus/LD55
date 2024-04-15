@@ -33,6 +33,8 @@ public class EventManager_ : MonoBehaviour
 
     private Dictionary<EventName, Event> events;
 
+    public List<EventName> trigeredList;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,7 @@ public class EventManager_ : MonoBehaviour
     {
         if (eventName != EventName.None)
         {
+            trigeredList.Add(eventName);
             events[eventName].Do();
         }
     }

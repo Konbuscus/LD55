@@ -690,6 +690,7 @@ MonoBehaviour:
       animal: {fileID: 3024768829080144829, guid: 193c2164bceee2a4090242c8e017d7f4,
         type: 3}
       position: {fileID: 4583046527013112241}
+  trigeredList: 
 --- !u!1 &399053537352936153
 GameObject:
   m_ObjectHideFlags: 0
@@ -16731,6 +16732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
         type: 3}
+      propertyPath: requiredEvent
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
+        type: 3}
       propertyPath: eventToTrigger
       value: 13
       objectReference: {fileID: 0}
@@ -26264,6 +26270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
         type: 3}
+      propertyPath: requiredEvent
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
+        type: 3}
       propertyPath: eventToTrigger
       value: 5
       objectReference: {fileID: 0}
@@ -32044,6 +32055,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6988553296919285842}
     m_Modifications:
+    - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
+        type: 3}
+      propertyPath: requiredEvent
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
         type: 3}
       propertyPath: eventToTrigger
@@ -38870,6 +38886,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6988553296919285842}
     m_Modifications:
+    - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
+        type: 3}
+      propertyPath: requiredEvent
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
         type: 3}
       propertyPath: eventToTrigger
@@ -92337,6 +92358,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
         type: 3}
+      propertyPath: requiredEvent
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
+        type: 3}
       propertyPath: eventToTrigger
       value: 7
       objectReference: {fileID: 0}
@@ -92423,6 +92449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
+        type: 3}
+      propertyPath: requiredEvent
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4325461043422641258, guid: 337f2c63ff78dd947ae20e9b2cd34181,
         type: 3}
