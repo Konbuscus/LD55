@@ -20,7 +20,8 @@ public enum EventName
     InFrontOfElevator,
     InsideElevator,
     GoInElevator,
-    LoadLevel2
+    LoadLevel2,
+    //addenum
 }
 
 public class EventManager_ : MonoBehaviour

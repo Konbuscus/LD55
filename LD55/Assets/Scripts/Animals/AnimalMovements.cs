@@ -57,6 +57,10 @@ public class AnimalMovements : MonoBehaviour
         animator = GetComponent<Animator>();
         refTime = Time.time;
         refLifeTime = Time.time;
+        AudioSource audioSource = rb.GetComponentInChildren<AudioSource>();
+        if(audioSource != null){
+            audioSource.Play();
+        }
     }
 
     // Update is called once per frame

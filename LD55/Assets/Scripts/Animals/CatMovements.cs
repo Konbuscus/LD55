@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,12 @@ public class CatMovements : AnimalMovements
     private bool isMovingAround = false;
     private float currentCirclePos = -1;
 
+    public List<AudioClip> audios;
+
     protected new void Start()
     {
+
+        GetComponentInChildren<AudioSource>().clip = audios[new System.Random().Next(0,audios.Count )];
         base.Start();
         /*
         targetMoves.Add(new MovePoint(new Vector3(3, 0, 6), MoveMode.Walk, 1f, 0.5f));
