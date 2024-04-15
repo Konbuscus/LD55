@@ -40,7 +40,7 @@ public class PlayerMovements : MonoBehaviour
     private List<string> inventory = new List<string>();
 
     private GameObject selectedAnimal;
-
+    private GameObject selectedComputer;
     public List<MyObjectObject<AnimalType, GameObject>> animalsPrefabs;
 
     // Start is called before the first frame update
@@ -207,6 +207,11 @@ public class PlayerMovements : MonoBehaviour
                         Debug.Log("Can't interact !");
                     }
                 }
+            }
+            else if(interactableInFront.interactEventType == InteractableEventType.Computer)
+            {
+                ComputerDoorInteraction computer = interactableInFront.mainGameObject.GetComponent<ComputerDoorInteraction>();
+                computer.InteractWithDoors();
             }
         }
     }

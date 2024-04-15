@@ -8,7 +8,8 @@ public enum InteractableEventType
 {
     Carry,
     Inventory,
-    Animal
+    Animal,
+    Computer
 }
 
 public class Interactable : MonoBehaviour
