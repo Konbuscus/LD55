@@ -11,12 +11,18 @@ public class DialogLine
     public string spriteName;
     public string name;
     public string text;
+    public EventName eventName;
 
     public DialogLine(string spriteName, string name, string text)
     {
         this.spriteName = spriteName;
         this.name = name;
         this.text = text;
+    }
+
+    public DialogLine(EventName eventName)
+    {
+        this.eventName = eventName;
     }
 }
 
@@ -29,10 +35,15 @@ public class DialogManager : MonoBehaviour
     private string currentDialog;
     private int dialogLineIndex;
 
+    public static DialogManager instance;
+
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         AddIntroDialog();
+        AddRoomOutDialog();
         StartDialog("Intro");
     }
 
@@ -52,6 +63,13 @@ public class DialogManager : MonoBehaviour
         dialogs["Intro"].Add(new DialogLine("player", "Me", "I only there was ..."));
     }
 
+    void AddRoomOutDialog()
+    {
+        dialogs.Add("RoomOut", new List<DialogLine>());
+        dialogs["RoomOut"].Add(new DialogLine("bird", "Bird", "Folow me !!!"));
+        dialogs["RoomOut"].Add(new DialogLine(EventName.RoomOut3));
+    }
+
     public void StartDialog(string dialogName)
     {
         currentDialog = dialogName;
@@ -65,9 +83,18 @@ public class DialogManager : MonoBehaviour
         if (dialogLineIndex < dialogs[currentDialog].Count)
         {
             DialogLine tmp = dialogs[currentDialog][dialogLineIndex];
-            Debug.Log(pictures.First(x => x.obj1 == tmp.spriteName).obj2);
-            DialogPanel.instance.SetDialog(pictures.First(x => x.obj1 == tmp.spriteName).obj2, tmp.name, tmp.text);
-            DialogPanel.instance.gameObject.SetActive(true);
+            if (tmp.text != null)
+            {
+                Debug.Log(pictures.First(x => x.obj1 == tmp.spriteName).obj2);
+                DialogPanel.instance.SetDialog(pictures.First(x => x.obj1 == tmp.spriteName).obj2, tmp.name, tmp.text);
+                DialogPanel.instance.gameObject.SetActive(true);
+            }
+            else if(tmp.eventName != EventName.None)
+            {
+                DialogPanel.instance.gameObject.SetActive(false);
+                EventManager_.instance.TrigerEvent(tmp.eventName);
+                NextDialogLine();
+            }
         }
         else
         {

@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalType: 0
   isLandedType: 0
-  moveSpeed: 2
+  moveSpeed: 4
   moveSpeedFactor: 1
   jumpForce: 10000
   floorDetector: {fileID: 962218234127060918}
