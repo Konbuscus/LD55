@@ -55,16 +55,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Sprint"",
-                    ""type"": ""Value"",
-                    ""id"": ""21e9fdb1-a1a2-4660-8294-181835c17fbc"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Jump"",
+                    ""name"": ""NextDialog"",
                     ""type"": ""Button"",
                     ""id"": ""01cb5cbe-8a9e-4f78-a45b-85c4cdab751f"",
                     ""expectedControlType"": ""Button"",
@@ -204,34 +195,12 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c68eb307-349d-4249-9c34-292bd8819e50"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5fafd2f6-a098-4278-826b-4bd24432900a"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""38ae8546-bf59-4128-95b1-479778948d05"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Jump"",
+                    ""action"": ""NextDialog"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -242,7 +211,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Jump"",
+                    ""action"": ""NextDialog"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -344,8 +313,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         m_Keyboard_Move = m_Keyboard.FindAction("Move", throwIfNotFound: true);
         m_Keyboard_Look = m_Keyboard.FindAction("Look", throwIfNotFound: true);
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
-        m_Keyboard_Sprint = m_Keyboard.FindAction("Sprint", throwIfNotFound: true);
-        m_Keyboard_Jump = m_Keyboard.FindAction("Jump", throwIfNotFound: true);
+        m_Keyboard_NextDialog = m_Keyboard.FindAction("NextDialog", throwIfNotFound: true);
         m_Keyboard_Scroll = m_Keyboard.FindAction("Scroll", throwIfNotFound: true);
         m_Keyboard_Invoke = m_Keyboard.FindAction("Invoke", throwIfNotFound: true);
     }
@@ -412,8 +380,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Move;
     private readonly InputAction m_Keyboard_Look;
     private readonly InputAction m_Keyboard_Interact;
-    private readonly InputAction m_Keyboard_Sprint;
-    private readonly InputAction m_Keyboard_Jump;
+    private readonly InputAction m_Keyboard_NextDialog;
     private readonly InputAction m_Keyboard_Scroll;
     private readonly InputAction m_Keyboard_Invoke;
     public struct KeyboardActions
@@ -423,8 +390,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Keyboard_Move;
         public InputAction @Look => m_Wrapper.m_Keyboard_Look;
         public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
-        public InputAction @Sprint => m_Wrapper.m_Keyboard_Sprint;
-        public InputAction @Jump => m_Wrapper.m_Keyboard_Jump;
+        public InputAction @NextDialog => m_Wrapper.m_Keyboard_NextDialog;
         public InputAction @Scroll => m_Wrapper.m_Keyboard_Scroll;
         public InputAction @Invoke => m_Wrapper.m_Keyboard_Invoke;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
@@ -445,12 +411,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @Sprint.started += instance.OnSprint;
-            @Sprint.performed += instance.OnSprint;
-            @Sprint.canceled += instance.OnSprint;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
+            @NextDialog.started += instance.OnNextDialog;
+            @NextDialog.performed += instance.OnNextDialog;
+            @NextDialog.canceled += instance.OnNextDialog;
             @Scroll.started += instance.OnScroll;
             @Scroll.performed += instance.OnScroll;
             @Scroll.canceled += instance.OnScroll;
@@ -470,12 +433,9 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @Sprint.started -= instance.OnSprint;
-            @Sprint.performed -= instance.OnSprint;
-            @Sprint.canceled -= instance.OnSprint;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
+            @NextDialog.started -= instance.OnNextDialog;
+            @NextDialog.performed -= instance.OnNextDialog;
+            @NextDialog.canceled -= instance.OnNextDialog;
             @Scroll.started -= instance.OnScroll;
             @Scroll.performed -= instance.OnScroll;
             @Scroll.canceled -= instance.OnScroll;
@@ -504,8 +464,7 @@ public partial class @Controlls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnSprint(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
+        void OnNextDialog(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
         void OnInvoke(InputAction.CallbackContext context);
     }

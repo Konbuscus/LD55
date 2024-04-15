@@ -184,11 +184,7 @@ public class AnimalMovements : MonoBehaviour
     {
         if (objectToHandle != null && !isHandlingObject && HasPickedUp())
         {
-            objectToHandle.transform.parent = handledObjectHandler;
-            Transform tmp = objectToHandle.GetComponent<Handlable>().handlePoint;
-            //objectToHandle.transform.localPosition = tmp.localPosition * tmp.localScale.x;
-            objectToHandle.transform.localRotation = tmp.localRotation;
-            objectToHandle.transform.position = handledObjectHandler.position + (objectToHandle.transform.position - tmp.position);
+            
             isHandlingObject = true;
         }
         else if(objectToHandle == null && isHandlingObject && HasUnPickedUp())
@@ -238,6 +234,11 @@ public class AnimalMovements : MonoBehaviour
         if (!isHandlingObject)
         {
             objectToHandle = o;
+            objectToHandle.transform.parent = handledObjectHandler;
+            Transform tmp = objectToHandle.GetComponent<Handlable>().handlePoint;
+            //objectToHandle.transform.localPosition = tmp.localPosition * tmp.localScale.x;
+            objectToHandle.transform.localRotation = tmp.localRotation;
+            objectToHandle.transform.position = handledObjectHandler.position + (objectToHandle.transform.position - tmp.position);
         }
     }
 

@@ -33,16 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Sprint",
-                    "type": "Value",
-                    "id": "21e9fdb1-a1a2-4660-8294-181835c17fbc",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Jump",
+                    "name": "NextDialog",
                     "type": "Button",
                     "id": "01cb5cbe-8a9e-4f78-a45b-85c4cdab751f",
                     "expectedControlType": "Button",
@@ -182,34 +173,12 @@
                 },
                 {
                     "name": "",
-                    "id": "c68eb307-349d-4249-9c34-292bd8819e50",
-                    "path": "<Keyboard>/shift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5fafd2f6-a098-4278-826b-4bd24432900a",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "38ae8546-bf59-4128-95b1-479778948d05",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "NextDialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -220,7 +189,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "NextDialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
