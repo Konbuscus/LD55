@@ -32,7 +32,7 @@ public class DialogEvent : Event
         DialogManager.instance.StartDialog(dialogName);
 
         if(nextEvent != EventName.None)
-            EventManager_.instance.TrigerEvent(nextEvent);
+            DialogManager.instance.AddNextEventToCurrentDialog(nextEvent);
     }
 }
 
@@ -86,5 +86,6 @@ public class EventTriggerer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         EventManager_.instance.TrigerEvent(eventToTrigger);
+        gameObject.SetActive(false);
     }
 }

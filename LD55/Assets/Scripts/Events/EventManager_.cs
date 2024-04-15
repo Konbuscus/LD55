@@ -8,7 +8,19 @@ public enum EventName
     RoomIn,
     RoomOut,
     RoomOut2,
-    RoomOut3
+    RoomOut3,
+    BeforeFalseExit,
+    BeforeFalseExit2,
+    FalseExit,
+    GoToElevator,
+    ClosedDoors,
+    GoToElevator2,
+    SawElevator,
+    GoToElevator3,
+    InFrontOfElevator,
+    InsideElevator,
+    GoInElevator,
+    LoadLevel2
 }
 
 public class EventManager_ : MonoBehaviour

@@ -78,7 +78,7 @@ public class AnimalMovements : MonoBehaviour
 
     void Move()
     {
-        if (targetPoint != null)
+        if (CanMove())
         {
             //Debug.Log((refTime + curentWaitTime).ToString() + " :: " + Time.time.ToString());
             if (refTime + curentWaitTime < Time.time)
@@ -128,6 +128,11 @@ public class AnimalMovements : MonoBehaviour
         isLanded = hits.Length > 0;
     }
 
+    bool CanMove()
+    {
+        return targetPoint != null && (targetPoint.targetPosition != Vector3.zero || targetPoint.targetGameobject != null);
+    }
+
     protected virtual void StartMove()
     {
 
@@ -139,7 +144,7 @@ public class AnimalMovements : MonoBehaviour
         float dist = Mathf.Sqrt(Mathf.Pow(targetPosition.x - transform.position.x, 2) + Mathf.Pow(targetPosition.z - transform.position.z, 2));
         UIDebuger.DisplayValue("targetPosition", targetPosition.ToString());
         //UIDebuger.DisplayValue("dist", dist.ToString());
-        if (dist < targetPoint.stopDistance)
+        if (CanMove() && dist < targetPoint.stopDistance)
         {
             EndStep();
 
@@ -166,7 +171,7 @@ public class AnimalMovements : MonoBehaviour
 
     void Look()
     {
-        if(targetPoint != null)
+        if(CanMove())
         {
             Vector3 targetPosition = ((targetPoint.targetGameobject != null) ? targetPoint.targetGameobject.transform.position : targetPoint.targetPosition);
 
@@ -205,12 +210,19 @@ public class AnimalMovements : MonoBehaviour
 
     protected void EndStep()
     {
-        if (targetPoint != null)
+        if (CanMove())
         {
             curentWaitTime = targetPoint.timeAfter;
             refTime = Time.time;
             targetPoint = null;
-            rb.velocity = Vector3.zero;
+            if (targetMoves.Count == 0)
+            {
+                rb.velocity = Vector3.zero;
+            }
+            else
+            {
+                rb.velocity = rb.velocity / 3f;
+            }
             moveSpeedAnimationSpeed = rb.velocity.magnitude / 2f;
         }
     }
@@ -272,7 +284,7 @@ public class AnimalMovements : MonoBehaviour
 
     public void SetTargetMoves(List<MovePoint> targetMoves)
     {
+        EndStep();
         this.targetMoves = targetMoves;
-        Debug.Log("ok");
     }
 }

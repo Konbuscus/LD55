@@ -44,7 +44,13 @@ public class DialogManager : MonoBehaviour
 
         AddIntroDialog();
         AddRoomOutDialog();
-        StartDialog("Intro");
+        AddBeforeFalseExit();
+        AddFalseExit();
+        AddClosedDoors();
+        AddSawElevator();
+        AddInFrontOfElevator();
+        AddInsideElevator();
+        //StartDialog("Intro");
     }
 
     // Update is called once per frame
@@ -67,7 +73,53 @@ public class DialogManager : MonoBehaviour
     {
         dialogs.Add("RoomOut", new List<DialogLine>());
         dialogs["RoomOut"].Add(new DialogLine("bird", "Bird", "Folow me !!!"));
-        dialogs["RoomOut"].Add(new DialogLine(EventName.RoomOut3));
+        //dialogs["RoomOut"].Add(new DialogLine(EventName.RoomOut3));
+    }
+
+    void AddBeforeFalseExit()
+    {
+        dialogs.Add("BeforeFalseExit", new List<DialogLine>());
+        dialogs["BeforeFalseExit"].Add(new DialogLine("bird", "bird", "Here !\nA fire exit !!!\nAnd there is no one arround !"));
+    }
+
+    void AddFalseExit()
+    {
+        dialogs.Add("FalseExit", new List<DialogLine>());
+        dialogs["FalseExit"].Add(new DialogLine("bird", "bird", "The fire exit is rigth here !"));
+        dialogs["FalseExit"].Add(new DialogLine("bird", "bird", "Come upstair !"));
+        dialogs["FalseExit"].Add(new DialogLine("bird", "bird", "I can already feel the fresh air !"));
+        dialogs["FalseExit"].Add(new DialogLine("bird", "bird", "Wait... I forgot that you ..."));
+        dialogs["FalseExit"].Add(new DialogLine("player", "me", "..."));
+        dialogs["FalseExit"].Add(new DialogLine("bird", "bird", "..."));
+        dialogs["FalseExit"].Add(new DialogLine("player", "me", "..."));
+        dialogs["FalseExit"].Add(new DialogLine("bird", "bird", "It's ok.\nIf you manage to get here, there must be an elevator somewhere."));
+        dialogs["FalseExit"].Add(new DialogLine("bird", "bird", "Let's search elsewhere !"));
+    }
+
+    void AddClosedDoors()
+    {
+        dialogs.Add("ClosedDoors", new List<DialogLine>());
+        dialogs["ClosedDoors"].Add(new DialogLine("bird", "bird", "Damn !\nAll these doors are in locked in security mode since the server system failure."));
+        dialogs["ClosedDoors"].Add(new DialogLine("bird", "bird", "I hope there is one that is not locked !"));
+    }
+
+    void AddSawElevator()
+    {
+        dialogs.Add("SawElevator", new List<DialogLine>());
+        dialogs["SawElevator"].Add(new DialogLine("bird", "bird", "I can see the elevator !"));
+        dialogs["SawElevator"].Add(new DialogLine("bird", "bird", "Hurry up before the system restarts !!!"));
+    }
+
+    void AddInFrontOfElevator()
+    {
+        dialogs.Add("InFrontOfElevator", new List<DialogLine>());
+        dialogs["InFrontOfElevator"].Add(new DialogLine("bird", "bird", "Use the key card !"));
+    }
+
+    void AddInsideElevator()
+    {
+        dialogs.Add("InsideElevator", new List<DialogLine>());
+        dialogs["InsideElevator"].Add(new DialogLine("bird", "bird", "We made it !\nLet's go to the surface !!!"));
     }
 
     public void StartDialog(string dialogName)
@@ -75,6 +127,11 @@ public class DialogManager : MonoBehaviour
         currentDialog = dialogName;
         dialogLineIndex = -1;
         NextDialogLine();
+    }
+
+    public void AddNextEventToCurrentDialog(EventName enventName)
+    {
+        dialogs[currentDialog].Add(new DialogLine(enventName));
     }
 
     public void NextDialogLine()
