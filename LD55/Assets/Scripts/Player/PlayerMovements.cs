@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovements : MonoBehaviour
 {
+    public static PlayerMovements instance;
+
     private Rigidbody rb;
     private Animator animator;
 
@@ -46,6 +48,8 @@ public class PlayerMovements : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         isInStair = false;
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
