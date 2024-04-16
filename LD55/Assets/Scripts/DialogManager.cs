@@ -62,7 +62,7 @@ public class DialogManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!hasStarted && refTime + 2f < Time.time)
+        if(!hasStarted && refTime + 0.1f < Time.time)
         {
             hasStarted = true;
             StartDialog("Intro");
