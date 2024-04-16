@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Sentis.Layers;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ public class PlayerMovements : MonoBehaviour
 {
     public static PlayerMovements instance;
 
+    public GameObject PauseMenu;
     private Rigidbody rb;
     private Animator animator;
 
@@ -67,11 +69,12 @@ public class PlayerMovements : MonoBehaviour
         Animate();
         CheckInteractable();
         DebugToUI();
+        EscapeListener();
     }
 
     void FixedUpdate()
     {
-        
+
     }
 
     void Animate()
@@ -183,15 +186,15 @@ public class PlayerMovements : MonoBehaviour
     {
         if (interactableInFront != null)
         {
-            if(interactableInFront.interactEventType == InteractableEventType.Animal)
+            if (interactableInFront.interactEventType == InteractableEventType.Animal)
             {
                 selectedAnimal = interactableInFront.mainGameObject;
             }
-            else if(interactableInFront.interactEventType == InteractableEventType.Inventory || interactableInFront.interactEventType == InteractableEventType.Carry)
+            else if (interactableInFront.interactEventType == InteractableEventType.Inventory || interactableInFront.interactEventType == InteractableEventType.Carry)
             {
                 if (Vector3.Distance(interactableInFront.mainGameObject.transform.position, cameraHolder.position) > 2)
                 {
-                    if(selectedAnimal == null)
+                    if (selectedAnimal == null)
                     {
                         Debug.Log("no animal selected !");
                         return;
@@ -212,11 +215,11 @@ public class PlayerMovements : MonoBehaviour
                     }
                 }
             }
-            else if(interactableInFront.interactEventType == InteractableEventType.Computer)
+            else if (interactableInFront.interactEventType == InteractableEventType.Computer)
             {
 
                 ComputerDoorInteraction computer = interactableInFront.mainGameObject.GetComponent<ComputerDoorInteraction>();
-                if(computer is null)
+                if (computer is null)
                 {
                     return;
                 }
@@ -228,7 +231,7 @@ public class PlayerMovements : MonoBehaviour
     void OnScroll(InputValue v)
     {
         Vector2 val = v.Get<Vector2>();
-        if(val.sqrMagnitude > 0)
+        if (val.sqrMagnitude > 0)
             AnimalSelector.instance.ChangeSelection(val.y < 0);
     }
 
@@ -239,5 +242,31 @@ public class PlayerMovements : MonoBehaviour
             GameObject tmp = Instantiate(animalsPrefabs.FirstOrDefault(x => x.obj1 == AnimalSelector.instance.GetSelectedAnimalType()).obj2);
             tmp.transform.position = hit.point + Vector3.up * (tmp.transform.position.y - tmp.transform.Find("FloorDetector").position.y);
         }
+    }
+
+    void EscapeListener()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(PauseMenu.activeSelf){
+                ResumeGame();
+            }
+            else{
+                PauseGame();
+            }
+        }
+    }
+
+
+    void PauseGame()
+    {
+        PauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    void ResumeGame()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
