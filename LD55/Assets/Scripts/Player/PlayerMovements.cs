@@ -239,8 +239,10 @@ public class PlayerMovements : MonoBehaviour
     {
         if (Physics.Raycast(cameraHolder.position, cameraHolder.forward, out RaycastHit hit, 5f))
         {
-            GameObject tmp = Instantiate(animalsPrefabs.FirstOrDefault(x => x.obj1 == AnimalSelector.instance.GetSelectedAnimalType()).obj2);
+            GameObject animal = animalsPrefabs.FirstOrDefault(x => x.obj1 == AnimalSelector.instance.GetSelectedAnimalType()).obj2;
+            GameObject tmp = Instantiate(animal);
             tmp.transform.position = hit.point + Vector3.up * (tmp.transform.position.y - tmp.transform.Find("FloorDetector").position.y);
+            tmp.name = animal.name;
         }
     }
 

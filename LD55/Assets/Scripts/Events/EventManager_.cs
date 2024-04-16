@@ -21,6 +21,8 @@ public enum EventName
     InsideElevator,
     GoInElevator,
     LoadLevel2,
+    RommIn2,
+    SpawnedBird,
     //addenum
 }
 

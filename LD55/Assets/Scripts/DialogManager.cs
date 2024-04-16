@@ -37,10 +37,15 @@ public class DialogManager : MonoBehaviour
 
     public static DialogManager instance;
 
+    private float refTime;
+    private bool hasStarted = false;
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+
+        refTime = Time.time;
 
         AddIntroDialog();
         AddRoomOutDialog();
@@ -50,13 +55,18 @@ public class DialogManager : MonoBehaviour
         AddSawElevator();
         AddInFrontOfElevator();
         AddInsideElevator();
+        AddRoomIn();
         //StartDialog("Intro");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(!hasStarted && refTime + 2f < Time.time)
+        {
+            hasStarted = true;
+            StartDialog("Intro");
+        }
     }
 
     void AddIntroDialog()
@@ -66,7 +76,8 @@ public class DialogManager : MonoBehaviour
         dialogs["Intro"].Add(new DialogLine("player", "Me", "I need to find a way to escape ! But how ..."));
         dialogs["Intro"].Add(new DialogLine("player", "Me", "The main reason they give me to why they chose me, is that disabled people are more receiptive and have greater adaptation abilities.\nI think that the real reason is that I can't escape easily ..."));
         dialogs["Intro"].Add(new DialogLine("player", "Me", "Recently, thanks to those experiments, I manage to communicate with animals.\nI can only understand basic things, but it's better than nothing and I think I'm getting better day by day."));
-        dialogs["Intro"].Add(new DialogLine("player", "Me", "I only there was ..."));
+        dialogs["Intro"].Add(new DialogLine("player", "Me", "Wait !\nMaybe that i can try to invoke a bird to help me !"));
+        dialogs["Intro"].Add(new DialogLine("none", "hint", "<Press the 'F' key to invoke a bird>"));
     }
 
     void AddRoomOutDialog()
@@ -122,6 +133,15 @@ public class DialogManager : MonoBehaviour
         dialogs["InsideElevator"].Add(new DialogLine("bird", "bird", "We made it !\nLet's go to the surface !!!"));
     }
 
+    void AddRoomIn()
+    {
+        dialogs.Add("RoomIn", new List<DialogLine>());
+        dialogs["RoomIn"].Add(new DialogLine("player", "me", "IT WORKED !!!"));
+        dialogs["RoomIn"].Add(new DialogLine("player", "me", "Now help me little bird !"));
+        dialogs["RoomIn"].Add(new DialogLine("player", "me", "<Select the bird with 'E' then select the card with 'E'>"));
+        dialogs["RoomIn"].Add(new DialogLine("player", "me", "<When the bird come back, press 'E' to take the card>"));
+    }
+
     public void StartDialog(string dialogName)
     {
         currentDialog = dialogName;
@@ -142,7 +162,6 @@ public class DialogManager : MonoBehaviour
             DialogLine tmp = dialogs[currentDialog][dialogLineIndex];
             if (tmp.text != null)
             {
-                Debug.Log(pictures.First(x => x.obj1 == tmp.spriteName).obj2);
                 DialogPanel.instance.SetDialog(pictures.First(x => x.obj1 == tmp.spriteName).obj2, tmp.name, tmp.text);
                 DialogPanel.instance.gameObject.SetActive(true);
             }
